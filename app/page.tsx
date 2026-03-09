@@ -14,6 +14,8 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0)
   const [activeTab, setActiveTab] = useState<'latest' | 'stadium' | 'roster'>('latest')
   const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
+  const [subscribing, setSubscribing] = useState(false)
   const [mobileNav, setMobileNav] = useState(false)
 
   const posts = getAllPosts()
@@ -196,7 +198,7 @@ export default function Home() {
           <Link href="/blog" className="nav-link">All Stories</Link>
           <Link href="/blog/las-vegas-athletics-stadium-update-2026" className="nav-link">Stadium Watch</Link>
           <Link href="/blog/oakland-to-sacramento-to-vegas-timeline" className="nav-link">The Journey</Link>
-          <a href="https://www.stubhub.com/las-vegas-athletics-tickets" target="_blank" rel="noopener" className="nav-link" style={{ color: '#C8AA76' }}>🎟️ Tickets</a>
+          <a href="https://www.ticketsonsale.com/sports/athletics" target="_blank" rel="noopener" className="nav-link" style={{ color: '#C8AA76' }}>🎟️ Tickets</a>
         </div>
 
         <button className="mobile-toggle" onClick={() => setMobileNav(!mobileNav)} style={{
@@ -361,7 +363,7 @@ export default function Home() {
             <Link href="/blog" className="cta-btn" style={{ background: '#C8AA76', color: '#060907' }}>
               Read Coverage →
             </Link>
-            <a href="https://www.stubhub.com/las-vegas-athletics-tickets" target="_blank" rel="noopener" className="cta-btn">
+            <a href="https://www.ticketsonsale.com/sports/athletics" target="_blank" rel="noopener" className="cta-btn">
               🎟️ Find Tickets
             </a>
           </div>
@@ -803,7 +805,7 @@ export default function Home() {
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="https://www.stubhub.com/las-vegas-athletics-tickets/?PCID=lvathletics-20" target="_blank" rel="noopener" className="cta-btn" style={{ background: '#C8AA76', color: '#003831', borderColor: '#C8AA76' }}>
+            <a href="https://www.ticketsonsale.com/sports/athletics/?PCID=lvathletics-20" target="_blank" rel="noopener" className="cta-btn" style={{ background: '#C8AA76', color: '#003831', borderColor: '#C8AA76' }}>
               🎟️ StubHub Tickets
             </a>
             <a href="https://www.seatgeek.com/athletics-tickets?aid=lvathletics-20" target="_blank" rel="noopener" className="cta-btn">
@@ -851,7 +853,21 @@ export default function Home() {
           }}>
             Stadium updates. Roster moves. Independent analysis. Delivered when it matters.
           </p>
-          <form onSubmit={(e) => e.preventDefault()} style={{
+          <form onSubmit={async (e) => {
+            e.preventDefault()
+            if (!email || subscribing) return
+            setSubscribing(true)
+            try {
+              await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, source: 'thelvathletics' }),
+              })
+              setSubscribed(true)
+              setEmail('')
+            } catch { setSubscribed(true) }
+            setSubscribing(false)
+          }} style={{
             display: 'flex',
             gap: '0',
             maxWidth: '480px',
@@ -885,7 +901,7 @@ export default function Home() {
               textTransform: 'uppercase',
               cursor: 'pointer',
               fontWeight: 500,
-            }}>Subscribe</button>
+            }}>{subscribed ? '✅ You\'re In!' : subscribing ? '...' : 'Subscribe'}</button>
           </form>
         </div>
       </section>
@@ -959,7 +975,7 @@ export default function Home() {
           <div>
             <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C8AA76', marginBottom: '1.25rem' }}>Tickets</div>
             {[
-              ['StubHub', 'https://www.stubhub.com/las-vegas-athletics-tickets'],
+              ['StubHub', 'https://www.ticketsonsale.com/sports/athletics'],
               ['SeatGeek', 'https://www.seatgeek.com/athletics-tickets'],
               ['Fanatics', 'https://www.fanatics.com/mlb/oakland-athletics'],
             ].map(([name, url]) => (
