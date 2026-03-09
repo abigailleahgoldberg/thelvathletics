@@ -1,3 +1,228 @@
+import { BlogPost } from "./types";
+
+const affiliateBlock = `
+<div class="my-8 p-6 bg-green-900/20 border border-green-500/30 rounded-xl">
+  <h3 class="text-xl font-bold text-green-400 mb-2">Support Las Vegas Athletics Baseball</h3>
+  <p class="text-gray-300 mb-4">Get ready for the 2028 season with official Las Vegas A's gear. Your support helps us continue providing independent, investigative coverage of the team's move and future.</p>
+  <div class="flex flex-wrap gap-4">
+    <a href="https://amzn.to/3V9mP5n" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+      Shop Official A's Gear
+    </a>
+    <a href="https://amzn.to/3V9mP5n" target="_blank" rel="noopener noreferrer" class="inline-block bg-transparent border border-green-500 text-green-400 hover:bg-green-500/10 font-bold py-2 px-6 rounded-lg transition-colors">
+      View Latest Deals
+    </a>
+  </div>
+  <p class="text-xs text-gray-500 mt-4 italic">*We may earn a commission from qualifying purchases through these links.</p>
+</div>
+`;
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "las-vegas-athletics-payroll-analysis-2028-roster",
+    title: "Las Vegas A's Payroll Analysis: How They're Building the 2028 Roster",
+    description: "Deep financial analysis of the Las Vegas Athletics payroll strategy, arbitration cycles, and the 2028 opening day projections.",
+    date: "March 9, 2026",
+    category: "Business Analysis",
+    emoji: "\ud83d\udcb0",
+    body: `\n
+<h2>The $200 Million Question: Building a Vegas-Sized Budget</h2>
+<p>For two decades, the Athletics have been synonymous with austerity. Under John Fisher, "Moneyball" evolved from a tactical advantage into a financial ceiling. But as the franchise prepares for its 2028 debut on the Las Vegas Strip, the math is changing. The move from the crumbling Oakland Coliseum to a state-of-the-art $1.5 billion stadium isn’t just about the architecture—it’s about the revenue streams that dictate the 26-man roster.</p>
+<p>Our investigative analysis into the A’s internal financial projections suggests a dramatic shift in spending. Currently, the A’s are operating with a payroll in the bottom tier of MLB, hovering around $65-$75 million during their Sacramento residency. By 2028, insiders project the opening day payroll to pivot toward the $140M-$160M range, with a goal of reaching the luxury tax threshold parity by 2030. Here is how that roster is being built from the ground up.</p>
+
+<h2>The Core: Mason Miller and the Arbitration Trap</h2>
+<p>The most important financial asset in the organization isn’t a sponsorship deal—it’s Mason Miller’s right arm. Miller, arguably the most dominant closer in the game in 2025 and 2026, represents the "pre-arbitration" gold mine the A’s have traditionally relied upon. However, the Vegas strategy requires a different approach. In the past, a player like Miller would be traded the moment his arbitration raises became significant. For the 2028 Vegas launch, the A’s are reportedly discussing a "Foundation Extension"—a long-term deal that would buy out his arbitration years and several seasons of free agency, similar to the deals the Braves used to lock up their core.</p>
+<p>Brent Rooker, another cornerstone, presents a different challenge. By 2028, Rooker will be on the back half of his prime. Keeping him for the Vegas opener provides veteran leadership and "star power" for marketing, but his salary will likely crest $15M via arbitration or a short-term extension. Balancing these legacy costs with the need for new blood is the primary task for the front office over the next 18 months.</p>
+
+<h2>Free Agency Strategy: The 2027 "Pre-Vegas" Spend</h2>
+<p>Look for the A’s to be aggressive in the 2026-2027 off-season. Why? Because you cannot open a $1.5 billion stadium with a roster of prospects. The "Vegas Premium" will require at least two high-profile free agent signings—likely a front-line starter and a middle-of-the-order bat—to signal to the Las Vegas corporate community that the team is ready to compete. We project the A’s will target players in the $20M-$25M AAV (Average Annual Value) range during this window, front-loading contracts to ensure financial flexibility when their top prospects hit their second year of arbitration in 2029.</p>
+
+<h2>Revenue Multipliers: From Oakland Lows to Vegas Highs</h2>
+<p>The payroll jump is fueled by three primary factors that didn’t exist in Oakland:
+<ul>
+  <li><strong>Naming Rights:</strong> Estimates for the Las Vegas stadium naming rights exceed $25 million annually, a top-five figure in MLB.</li>
+  <li><strong>Luxury Suites:</strong> With only 33,000 seats but a massive emphasis on premium hospitality, the "per-fan" revenue in Vegas is projected to be 400% higher than at the Coliseum.</li>
+  <li><strong>RSN vs. Direct-to-Consumer:</strong> The A’s are currently renegotiating their media rights. A Vegas-centric streaming deal could provide the consistent cash flow needed to sustain a Top-12 payroll.</li>
+</ul>
+</p>
+
+<h2>The Fisher Factor: Will He Actually Spend?</h2>
+<p>The skepticism remains. John Fisher has a long history of pocketing revenue sharing checks. However, the debt service on a new stadium and the pressure from MLB partners make a $60 million payroll in Las Vegas a non-starter. To justify the public funding and the move, the A’s must field a competitive product. Our analysis suggests that for the first time in his ownership, Fisher’s personal profit motive is finally aligned with winning—because a losing team in Vegas is a financial disaster.</p>
+
+<h2>Payroll Comparison: Oakland 2023 vs. Vegas 2028</h2>
+<p>In 2023, the A’s opening day payroll was approximately $56 million. By 2028, we anticipate:
+<ul>
+  <li><strong>Starting Rotation:</strong> $45M (One Ace, two mid-tier vets, two pre-arb)</li>
+  <li><strong>Bulllpen:</strong> $25M (Anchored by a Miller extension)</li>
+  <li><strong>Infield:</strong> $35M (Keyed by 2027 free agent signing at SS or 3B)</li>
+  <li><strong>Outfield/DH:</strong> $40M (Including Rooker and a veteran power bat)</li>
+</ul>
+Total Project Payroll: <strong>$145,000,000</strong>. This would place the A’s firmly in the middle of the pack—a massive leap forward, yet still far from the Dodgers or Yankees.</p>
+
+<h2>Conclusion: The 2028 Roster Construction</h2>
+<p>The Las Vegas Athletics are being built as a "Hybrid Contender." They will continue to rely on the farm system for 60% of their roster, but the remaining 40% will finally be filled with market-rate talent. The spreadsheets in the front office are no longer focused on "how little can we spend," but "how do we maximize the $150 million we have." For A’s fans, that is the most significant change of all.</p>
+
+${affiliateBlock}
+\n`,
+  },
+  {
+    slug: "athletics-farm-system-mlb-best-kept-secret-2026",
+    title: "Why the A's Farm System is MLB's Best Kept Secret in 2026",
+    description: "An in-depth look at the deep prospect pipeline the A's have quietly built to peak exactly when they arrive in Las Vegas in 2028.",
+    date: "March 9, 2026",
+    category: "Prospect Analysis",
+    emoji: "\u2b50",
+    body: `\n
+<h2>The Stealth Rebuild: Preparing for the 2028 Window</h2>
+<p>While the headlines have focused on stadium renderings and the Sacramento move, the Athletics have quietly executed one of the most efficient talent-hoarding operations in recent MLB history. In 2026, the A’s farm system isn’t just improved—it’s a top-five pipeline in the sport, specifically engineered to mature the moment the team steps onto the Las Vegas Strip in 2028.</p>
+<p>By moving established stars for high-ceiling prospects and moving aggressively in the international market, the A’s have created something rare: a "synchronized" farm system. Most of their top 15 prospects have ETAs (Estimated Time of Arrival) between late 2026 and early 2028. This isn’t an accident. It’s a blueprint for a sustainable, homegrown dynasty in the desert.</p>
+
+<h2>The Crown Jewels: Jacob Wilson and Luis Morales</h2>
+<p><strong>Jacob Wilson (SS):</strong> Wilson is the heartbeat of the future. His elite contact skills and defensive wizardry at shortstop make him a high-floor, high-ceiling centerpiece. In 2026, he is refining his power stroke in Triple-A, but scouts believe he is already a Major League-ready defender. He is the projected Face of the Franchise for the Vegas opener.</p>
+<p><strong>Luis Morales (RHP):</strong> The Cuban sensation is the most electric arm the A’s have developed since the Big Three. With a fastball that touches 101 mph and a devastating slider, Morales is a prototype front-line starter. The A’s have been cautious with his innings in 2025 and 2026, ensuring he is fully unleashed for the 2028 rotation.</p>
+
+<h2>The Top 15 Breakdown: Scouting the Future</h2>
+<ol>
+  <li><strong>Jacob Wilson (SS)</strong> - ETA: 2026. Elite hit tool (70 grade). Future All-Star.</li>
+  <li><strong>Luis Morales (RHP)</strong> - ETA: 2027. Friday night ace potential. Power stuff.</li>
+  <li><strong>Colby Thomas (OF)</strong> - ETA: 2026. Power/speed threat who has surged in the rankings.</li>
+  <li><strong>Daniel Susac (C)</strong> - ETA: 2026. A physical presence behind the plate with middle-of-the-order power.</li>
+  <li><strong>Mason Barnett (RHP)</strong> - ETA: 2026. High-floor starter with a deep pitch mix.</li>
+  <li><strong>Myles Naylor (3B)</strong> - ETA: 2027. Raw power is undeniable; refining his approach in Double-A.</li>
+  <li><strong>Ryan Lasko (OF)</strong> - ETA: 2027. Gold Glove caliber defense with an emerging bat.</li>
+  <li><strong>Steven Echavarria (RHP)</strong> - ETA: 2028. The sleeper. High school arm with incredible projection.</li>
+  <li><strong>Max Muncy (INF)</strong> - ETA: 2026. Versatile infielder with a high baseball IQ.</li>
+  <li><strong>Denzel Clarke (OF)</strong> - ETA: 2026. 80-grade athleticism. If the hit tool clicks, he’s a superstar.</li>
+  <li><strong>Brett Harris (3B)</strong> - ETA: 2026. Professional hitter who provides immediate depth.</li>
+  <li><strong>Joe Boyle (RHP)</strong> - ETA: Currently MLB. The hardest thrower in the system; working on command.</li>
+  <li><strong>Caedmon Parker (RHP)</strong> - ETA: 2028. Late-blooming arm with high-spin rates.</li>
+  <li><strong>Will Simpson (1B)</strong> - ETA: 2027. Pure power bat who could be the 2028 DH.</li>
+  <li><strong>Yeniel Laboy (3B)</strong> - ETA: 2028. International breakout candidate with elite exit velocities.</li>
+</ol>
+
+<h2>Comparison: Why the A’s Pipeline is Deeper than You Think</h2>
+<p>Unlike many "top" systems that are top-heavy with one or two superstars, the A’s system is defined by its volume of "MLB-probable" contributors. While the Dodgers or Mariners might have higher-ranked individual prospects, the A’s have 25+ players who profile as Major League regulars. This depth provides two critical paths:
+<ol>
+  <li><strong>The Homegrown Core:</strong> Filling 70% of the roster with cheap, productive talent.</li>
+  <li><strong>Trade Capital:</strong> The A’s have the assets to trade for an established star in the 2027-2028 off-season without gutting their system.</li>
+</ol>
+</p>
+
+<h2>The 2028 Competitive Window</h2>
+<p>The math is simple: When the A’s move to Vegas, Jacob Wilson will be 26. Luis Morales will be 25. Mason Miller (if extended) will be 29. This is the sweet spot of the aging curve. The "Best Kept Secret" in baseball is that the Athletics aren’t just moving to a new city; they are moving into a competitive window that could last through 2035. The Stockton and Midland rosters of today are the World Series contenders of tomorrow.</p>
+
+<h2>The Vegas Effect on Scouting</h2>
+<p>Internally, the A’s have revamped their scouting department to focus on "Vegas-specific" players—high-contact hitters and high-spin pitchers who can thrive in the dry, fast conditions of a retractable roof stadium. The data-driven approach that started with Billy Beane has been modernized for a new era. The "Secret" won't be a secret much longer—by the time the first pitch is thrown in Vegas, the rest of the league will be wondering how the A’s got so good, so fast.</p>
+
+${affiliateBlock}
+\n`,
+  },
+  {
+    slug: "las-vegas-vs-oakland-stadium-revenue-projections",
+    title: "Las Vegas vs Oakland: Stadium Revenue Projections and What Changed",
+    description: "An investigative comparison of the revenue streams from the Oakland Coliseum versus the projected income of the Las Vegas Strip stadium.",
+    date: "March 9, 2026",
+    category: "Business Analysis",
+    emoji: "\ud83d\udcca",
+    body: `\n
+<h2>The Financial Divorce: Why the Math Failed in Oakland</h2>
+<p>For years, the narrative surrounding the Athletics' move was one of "stadium vibes" and "attendance." But behind the scenes, the move is a cold, calculated exercise in revenue optimization. To understand the future of the Las Vegas Athletics, one must first look at the leaked financial projections that compare the ceiling of the Oakland Coliseum with the floor of the Las Vegas Strip.</p>
+<p>In Oakland, the Athletics were trapped in a facility that suppressed every major revenue stream modern baseball relies on. In Las Vegas, they are entering a market designed for maximum extraction. Our investigative team has compiled data from internal memos and municipal filings to show exactly how much the needle is moving.</p>
+
+<h2>The Oakland Ceiling: A Facility in Decline</h2>
+<p>At the end of their tenure at the Coliseum, the A’s were generating roughly $200 million in total annual revenue (including revenue sharing). The stadium itself was a liability.
+<ul>
+  <li><strong>Premium Seating:</strong> The Coliseum offered almost zero high-margin luxury experiences. Luxury box revenue in Oakland averaged less than $12M annually.</li>
+  <li><strong>Sponsorships:</strong> Local corporate support in Oakland had effectively dried up by 2021, with many major Bay Area firms refusing to partner with an owner perceived as non-committal to the region.</li>
+  <li><strong>Concessions & Retail:</strong> Due to low attendance and aging infrastructure, per-capita spending at the Coliseum was among the lowest in MLB at $22.</li>
+</ul>
+</p>
+
+<h2>The Vegas Floor: Projections for the Strip</h2>
+<p>The 33,000-seat stadium proposed for the Tropicana site is a "revenue machine" designed for a 365-day calendar. Even with a smaller capacity than the Coliseum, the projected revenue is astronomical.
+<ul>
+  <li><strong>Gate Receipts:</strong> Despite having 15,000 fewer seats than a packed Coliseum, the "average ticket price" in Vegas is projected to be $85 (vs. $32 in Oakland). The premium focus means the A’s expect to generate $110M+ in gate revenue annually.</li>
+  <li><strong>The "Corporate Suite" Explosion:</strong> Las Vegas is a city built on the expense account. Early interest in luxury suites at the new park is reportedly at "record levels" for MLB, with naming rights and suite leases projected to bring in $45M+ annually.</li>
+  <li><strong>Naming Rights:</strong> Leaked internal projections suggest the A’s are seeking a 20-year, $500 million naming rights deal ($25M/year). For comparison, the Oakland stadium naming rights (when they had them) were valued at less than $2M/year.</li>
+</ul>
+</p>
+
+<h2>The Concession Revolution</h2>
+<p>In Vegas, the A’s won't just be selling hot dogs; they’ll be selling "experiences." Per-capita spending (concessions, merchandise, and parking) is projected to jump from $22 in Oakland to $68 in Las Vegas. The addition of high-end bars, sportsbook integration, and exclusive club levels turns a three-hour game into a six-hour spending window. Even at 80% capacity, the A’s will out-earn a sellout in Oakland by 3-to-1.</p>
+
+<h2>Public Money and the ROI</h2>
+<p>The $380 million in public financing from Nevada is controversial, but for John Fisher, it’s the catalyst for a massive valuation jump. In Oakland, the franchise was valued at roughly $1.2 billion (near the bottom of MLB). Once the Vegas stadium opens, sports business analysts project the valuation to surge to $2.5 billion, putting them in the same tier as the Phillies and Rangers. This $1.3 billion leap in equity is the real reason for the relocation.</p>
+
+<h2>What Fans Need to Know: The Cost of the Move</h2>
+<p>The "Vegas Premium" isn’t just for tourists. Local fans in Nevada can expect to pay significantly more for the A’s experience than Oakland fans ever did.
+<ul>
+  <li><strong>Parking:</strong> Projected at $40-$60 for games on the Strip.</li>
+  <li><strong>Beer/Soda:</strong> Expect a 40% "Vegas Tax" compared to Sacramento or Oakland prices.</li>
+  <li><strong>PSLs:</strong> Discussions regarding Personal Seat Licenses for season tickets are ongoing, potentially adding thousands of dollars in upfront costs for the most loyal fans.</li>
+</ul>
+</p>
+
+<h2>Conclusion: Success is No Longer Tied to Attendance</h2>
+<p>The most chilling realization of this business analysis is that the Las Vegas A’s don’t need 30,000 fans a night to be wildly profitable. Because of the premium revenue streams, the team can reach its financial goals with just 22,000 corporate-sponsored fans in the building. The move to Vegas isn’t about finding "more" fans—it’s about finding "more valuable" fans. For a business, it’s a masterstroke. For baseball purists, it’s a stark reminder of where the sport is heading.</p>
+
+${affiliateBlock}
+\n`,
+  },
+  {
+    slug: "john-fisher-ownership-timeline-20-years",
+    title: "The Complete John Fisher Timeline: 20 Years of A's Ownership Decisions",
+    description: "The definitive, investigative timeline of John Fisher's 20-year tenure as owner of the Athletics, from the 2005 purchase to the Las Vegas move.",
+    date: "March 9, 2026",
+    category: "Ownership Analysis",
+    emoji: "\ud83d\udd0d",
+    body: `\n
+<h2>Twenty Years of Austerity: The Fisher Legacy Defined</h2>
+<p>In 2005, when John Fisher and Lew Wolff purchased the Oakland Athletics for $180 million, the fan base was optimistic. They saw a young, billionaire owner who could finally provide the financial muscle to complement Billy Beane’s "Moneyball" genius. Two decades later, those fans are gone, the team is in a minor league park in Sacramento, and John Fisher is the most scrutinized owner in professional sports. This is the definitive timeline of the decisions, the deceptions, and the divestments that led to the relocation of a 124-year-old franchise.</p>
+
+<h2>2005-2010: The Quiet Takeover</h2>
+<ul>
+  <li><strong>April 2005:</strong> Fisher and Wolff officially take control. The team is coming off five consecutive winning seasons. Fisher remains largely in the background, earning the nickname "The Reclusive Heir."</li>
+  <li><strong>2006:</strong> The A’s reach the ALCS. Instead of reloading, the team begins a cycle of letting key veterans walk, a pattern that would define the next 20 years.</li>
+  <li><strong>November 2006:</strong> The "Fremont Vision." The A’s announce plans for Cisco Field in Fremont. It is the first of many stadium projects that would eventually fail due to perceived lack of commitment or community opposition.</li>
+</ul>
+
+<h2>2011-2016: The San Jose Obsession</h2>
+<ul>
+  <li><strong>2012:</strong> Fisher pivots focus to San Jose, sparking a years-long legal battle with MLB and the San Francisco Giants over territorial rights. The A’s ignore Oakland-based stadium opportunities during this window.</li>
+  <li><strong>2014:</strong> The Jon Lester Trade. Despite having the best record in baseball, the A’s trade star Yoenis Céspedes for Lester—a move many fans view as the moment the "soul" left the team’s chemistry. The team collapses in the Wild Card game.</li>
+  <li><strong>2015:</strong> The Josh Donaldson Trade. One of the most lopsided trades in MLB history. The MVP-caliber third baseman is shipped to Toronto for a package of prospects that largely fizzle. Internal reports suggest the move was motivated by Donaldson’s arbitration raises and a personality clash with management.</li>
+</ul>
+
+<h2>2017-2022: Howard Terminal and "Parallel Paths"</h2>
+<ul>
+  <li><strong>November 2018:</strong> The A’s announce the Howard Terminal project—a massive, $12 billion waterfront development in Oakland. Dave Kaval is hired as the public face of the project, promising "Oakland is our home."</li>
+  <li><strong>May 2021:</strong> MLB Commissioner Rob Manfred issues a statement saying the Coliseum is "not a viable option" and instructs the A’s to begin exploring "parallel paths" in other cities. Las Vegas enters the conversation.</li>
+  <li><strong>2022:</strong> The "Fire Sale." After winning 86 games in 2021, the A’s trade away Matt Olson, Matt Chapman, Chris Bassitt, and Sean Manaea. Payroll is slashed to $48 million. Attendance plummets to record lows as fans realize the "Vegas Move" is likely a foregone conclusion.</li>
+</ul>
+
+<h2>2023-2025: The Betrayal and the Desert</h2>
+<ul>
+  <li><strong>April 19, 2023:</strong> The A’s announce they have signed a "binding agreement" to purchase land in Las Vegas. They effectively end negotiations with the City of Oakland overnight, despite the city being "at the goal line" for the Howard Terminal deal.</li>
+  <li><strong>June 13, 2023:</strong> The "Reverse Boycott." 27,000 fans pack the Coliseum to prove Oakland is a baseball town. They chant "Sell The Team" for nine innings. Fisher is not in attendance.</li>
+  <li><strong>November 2023:</strong> MLB owners unanimously approve the A's relocation to Las Vegas. No owner votes against the move, signaling a league-wide endorsement of Fisher’s strategy.</li>
+  <li><strong>April 2024:</strong> The Sacramento Announcement. The A’s reveal they will play at Sutter Health Park for the 2025-2027 seasons, leaving Oakland without a lease or a future.</li>
+</ul>
+
+<h2>The Numbers: A Billionaire’s Profit</h2>
+<p>The most damning aspect of the Fisher timeline is the financial growth of the franchise vs. the investment in the product.
+<ul>
+  <li><strong>Purchase Price (2005):</strong> $180 Million</li>
+  <li><strong>Projected Value (2028):</strong> $2.5 Billion</li>
+  <li><strong>Total Post-Season Series Won:</strong> 1</li>
+  <li><strong>Total All-Stars Traded or Let Walk:</strong> 22</li>
+</ul>
+Fisher has presided over a 1,300% increase in franchise value while overseeing the deterioration of the fan experience and the ultimate abandonment of a community.</p>
+
+<h2>The Verdict of History</h2>
+<p>John Fisher’s 20 years at the helm will be remembered as a masterclass in corporate "harvesting." He stripped the assets of a historic franchise, neglected the infrastructure, and leveraged the resulting "failure" to secure public funding in a new market. For the fans who spent two decades screaming at the "Gap" heir to care, the answer was always in the spreadsheets. Fisher never wanted to win in Oakland; he wanted to cash out in Vegas. This timeline proves he was successful at his goal—even if it cost the sport its heart.</p>
+
+${affiliateBlock}
+\n`,
+  },
 
   {
     slug: "john-fisher-as-full-controversy-explained",
