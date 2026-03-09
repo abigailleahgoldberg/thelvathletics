@@ -32,6 +32,39 @@ export default function Nav() {
         padding: 0,
       }}>
         <li>
+          <Link href="/tools/trade-calculator" style={{
+            color: "var(--gold)",
+            fontSize: "0.9rem",
+            letterSpacing: "0.04em",
+            fontWeight: "bold",
+            fontFamily: "Arial, sans-serif",
+          }}>
+            Trade Calc
+          </Link>
+        </li>
+        <li>
+          <Link href="/analytics" style={{
+            color: "var(--gold)",
+            fontSize: "0.9rem",
+            letterSpacing: "0.04em",
+            fontWeight: "bold",
+            fontFamily: "Arial, sans-serif",
+          }}>
+            Analytics
+          </Link>
+        </li>
+        <li>
+          <Link href="/betting-model" style={{
+            color: "var(--gold)",
+            fontSize: "0.9rem",
+            letterSpacing: "0.04em",
+            fontWeight: "bold",
+            fontFamily: "Arial, sans-serif",
+          }}>
+            Betting
+          </Link>
+        </li>
+        <li>
           <Link href="/blog" style={{
             color: "var(--cream)",
             fontSize: "0.9rem",
