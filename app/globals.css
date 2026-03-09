@@ -1,10 +1,11 @@
-@import "tailwindcss";
+/* Global base styles for thelvathletics.com */
 
 :root {
-  --dark: #0A0800;
+  --dark: #090C08;
   --green: #003831;
-  --gold: #EFB21E;
-  --cream: #FAFAF8;
+  --gold: #C8AA76;
+  --cream: #F5F0E8;
+  --rust: #8B3A0F;
 }
 
 * {
@@ -18,8 +19,9 @@ html {
 body {
   background: var(--dark);
   color: var(--cream);
-  font-family: Georgia, 'Times New Roman', serif;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -54,6 +56,9 @@ a:hover {
   margin-bottom: 1.25rem;
   color: var(--cream);
   opacity: 0.9;
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
 
 .prose-lv ul {
