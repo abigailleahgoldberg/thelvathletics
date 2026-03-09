@@ -1,26 +1,26 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { getAllPosts } from './blog/data'
 
 const TARGET = new Date('2028-04-01T19:05:00-07:00').getTime()
 
-interface TimeLeft {
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-}
+interface TimeLeft { days: number; hours: number; minutes: number; seconds: number }
 
 export default function Home() {
   const [time, setTime] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const [mounted, setMounted] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
+  const [activeTab, setActiveTab] = useState<'latest' | 'stadium' | 'roster'>('latest')
+  const [email, setEmail] = useState('')
+  const [mobileNav, setMobileNav] = useState(false)
 
   const posts = getAllPosts()
-  const recent = posts.slice(0, 3)
-  const featured = recent[0]
-  const small = recent.slice(1, 3)
+  const latest = posts.slice(0, 6)
+  const hero = latest[0]
+  const sidebar = latest.slice(1, 4)
+  const more = latest.slice(4, 6)
 
   useEffect(() => {
     setMounted(true)
@@ -39,496 +39,469 @@ export default function Home() {
     return () => clearInterval(id)
   }, [])
 
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   const pad = (n: number) => String(n).padStart(2, '0')
+
+  const categories = [...new Set(posts.map(p => p.category))]
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&family=DM+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-          background: #090C08;
-          color: #F5F0E8;
-          overflow-x: hidden;
-          font-family: 'Source Serif 4', Georgia, serif;
-        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { background: #060907; color: #F5F0E8; overflow-x: hidden; font-family: 'Inter', system-ui, sans-serif; }
         a { color: inherit; text-decoration: none; }
 
-        @keyframes ticker-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        ::selection { background: #C8AA76; color: #060907; }
+
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(200,170,118,0.6); } 50% { box-shadow: 0 0 0 14px rgba(200,170,118,0); } }
+        @keyframes float-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes grain { 0%, 100% { transform: translate(0, 0); } 10% { transform: translate(-5%, -10%); } 20% { transform: translate(-15%, 5%); } 30% { transform: translate(7%, -25%); } 40% { transform: translate(-5%, 25%); } 50% { transform: translate(-15%, 10%); } 60% { transform: translate(15%, 0%); } 70% { transform: translate(0%, 15%); } 80% { transform: translate(3%, 35%); } 90% { transform: translate(-10%, 10%); } }
+        @keyframes glow { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; } }
+        @keyframes line-draw { from { width: 0; } to { width: 100%; } }
+
+        .grain::before {
+          content: '';
+          position: absolute;
+          inset: -50%;
+          background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+          opacity: 0.035;
+          animation: grain 8s steps(10) infinite;
+          pointer-events: none;
+          z-index: 1;
         }
 
-        @keyframes pulse-dot {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200,170,118,0.6); }
-          50% { transform: scale(1.3); box-shadow: 0 0 0 8px rgba(200,170,118,0); }
-        }
+        .hover-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+        .hover-card:hover { transform: translateY(-4px); }
+        .hover-card:hover .card-img { transform: scale(1.05); }
+        .card-img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
 
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
+        .nav-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,240,232,0.5); transition: color 0.2s; }
+        .nav-link:hover { color: #C8AA76; }
 
-        .nav-link {
-          font-family: 'DM Mono', monospace;
-          font-size: 0.72rem;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: rgba(245,240,232,0.65);
-          transition: color 0.2s, opacity 0.2s;
-        }
-        .nav-link:hover { color: #C8AA76; opacity: 1; }
+        .tab-btn { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.8rem 1.8rem; border: 1px solid rgba(200,170,118,0.2); background: transparent; color: rgba(245,240,232,0.5); cursor: pointer; transition: all 0.2s; }
+        .tab-btn:hover { border-color: rgba(200,170,118,0.5); color: #C8AA76; }
+        .tab-btn.active { background: #003831; border-color: #C8AA76; color: #C8AA76; }
 
-        .blog-card-featured:hover { background: rgba(0,56,49,0.25) !important; }
-        .blog-card-small:hover { background: rgba(0,56,49,0.25) !important; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #C8AA76; border: 1px solid #C8AA76; padding: 0.9rem 2rem; transition: all 0.25s; background: transparent; cursor: pointer; }
+        .cta-btn:hover { background: #C8AA76; color: #060907; }
 
-        .stat-cell:not(:last-child) {
-          border-right: 1px solid rgba(200,170,118,0.18);
-        }
+        .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7vw, 6rem); color: #C8AA76; line-height: 0.9; }
 
         @media (max-width: 900px) {
-          .hero-split { flex-direction: column !important; }
-          .hero-left { flex: none !important; min-height: 70vh; }
-          .hero-right { flex: none !important; min-height: 50vw; clip-path: none !important; }
-          .story-cols { grid-template-columns: 1fr !important; gap: 3rem !important; }
-          .blog-grid { grid-template-columns: 1fr !important; }
-          .stat-grid { grid-template-columns: repeat(2,1fr) !important; }
-          .stat-cell:nth-child(2) { border-right: none !important; }
-          .migration-row { flex-direction: column !important; gap: 2rem !important; align-items: flex-start !important; }
-          .migration-arrow { transform: rotate(90deg); }
-          nav { padding: 0 1.5rem !important; }
-          .nav-links { display: none !important; }
-          .countdown-row { gap: 0.5rem !important; }
-          .countdown-block { min-width: 60px !important; padding: 0.75rem 0.75rem 0.5rem !important; }
-          .countdown-num { font-size: 2rem !important; }
+          .hero-grid { grid-template-columns: 1fr !important; }
+          .hero-sidebar { display: none !important; }
+          .blog-grid-3 { grid-template-columns: 1fr !important; }
+          .stat-row { grid-template-columns: repeat(2, 1fr) !important; }
+          .story-grid { grid-template-columns: 1fr !important; }
+          .footer-grid { grid-template-columns: 1fr !important; text-align: center; }
+          .desktop-nav { display: none !important; }
+          .countdown-row { gap: 0.4rem !important; }
+          .countdown-cell { min-width: 55px !important; padding: 0.6rem !important; }
+          .countdown-num { font-size: 2.2rem !important; }
+          .hero-hl { font-size: 3.5rem !important; }
+          .mobile-toggle { display: flex !important; }
+          .section-pad { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        }
+        @media (max-width: 600px) {
+          .countdown-cell { min-width: 48px !important; }
+          .hero-hl { font-size: 2.8rem !important; }
         }
       `}</style>
 
-      {/* ============ NAV ============ */}
-      <nav style={{
-        position: 'fixed',
-        top: 0, left: 0, right: 0,
-        zIndex: 999,
-        background: '#090C08',
-        borderBottom: '1px solid #C8AA76',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 3rem',
-        height: '64px',
-      }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', textDecoration: 'none' }}>
-          {/* A in a circle -- Oakland A's homage */}
-          <div style={{
-            width: '38px', height: '38px',
-            borderRadius: '50%',
-            border: '2px solid #C8AA76',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flexShrink: 0,
-          }}>
-            <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11 2L21 22H16.5L14.5 17H7.5L5.5 22H1L11 2Z" fill="#C8AA76"/>
-              <rect x="7" y="14" width="8" height="2.5" fill="#090C08"/>
-            </svg>
-          </div>
-          <span style={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: '0.78rem',
-            letterSpacing: '0.1em',
-            color: '#F5F0E8',
-            textTransform: 'lowercase',
-          }}>thelvathletics.com</span>
-        </Link>
-
-        <ul className="nav-links" style={{ display: 'flex', gap: '2.5rem', listStyle: 'none' }}>
-          <li><Link href="/blog" className="nav-link">Blog</Link></li>
-          <li><Link href="/blog/oakland-to-sacramento-to-vegas-timeline" className="nav-link">The Journey</Link></li>
-          <li><Link href="/blog/las-vegas-athletics-stadium-update-2026" className="nav-link">2028</Link></li>
-        </ul>
-      </nav>
-
-      {/* ============ HERO ============ */}
-      <section className="hero-split" style={{
-        minHeight: '100vh',
-        paddingTop: '64px',
-        display: 'flex',
-      }}>
-
-        {/* LEFT 60% -- Green */}
-        <div className="hero-left" style={{
-          flex: '0 0 60%',
-          background: '#003831',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          padding: '4rem 4rem 4rem',
-          position: 'relative',
-          overflow: 'hidden',
-        }}>
-          {/* Ghost A watermark */}
-          <div aria-hidden="true" style={{
-            position: 'absolute',
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 'clamp(20rem, 55vw, 55vw)',
-            color: 'rgba(200,170,118,0.04)',
-            top: '50%', left: '50%',
-            transform: 'translate(-50%, -50%)',
-            lineHeight: 1,
-            pointerEvents: 'none',
-            userSelect: 'none',
-            letterSpacing: '-0.05em',
-          }}>A</div>
-
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            {/* Hero headline */}
-            <h1 style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: 'clamp(5rem, 10vw, 11rem)',
-              lineHeight: 0.88,
-              color: '#F5F0E8',
-              letterSpacing: '0.02em',
-              marginBottom: '2.5rem',
-            }}>
-              THE DESERT<br />
-              CALLS
-            </h1>
-
-            <p style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: '0.82rem',
-              letterSpacing: '0.14em',
-              color: '#C8AA76',
-              textTransform: 'uppercase',
-              marginBottom: '2.75rem',
-            }}>Las Vegas Athletics. Opening Day 2028.</p>
-
-            {/* Countdown -- old scoreboard style */}
-            <div className="countdown-row" style={{
-              display: 'flex',
-              gap: '0.6rem',
-              alignItems: 'flex-start',
-            }}>
-              {[
-                { value: mounted ? String(time.days) : '--', label: 'DAYS' },
-                { value: mounted ? pad(time.hours) : '--', label: 'HRS' },
-                { value: mounted ? pad(time.minutes) : '--', label: 'MIN' },
-                { value: mounted ? pad(time.seconds) : '--', label: 'SEC' },
-              ].map(({ value, label }) => (
-                <div className="countdown-block" key={label} style={{
-                  background: '#090C08',
-                  padding: '1.1rem 1.25rem 0.8rem',
-                  minWidth: '80px',
-                  textAlign: 'center',
-                  position: 'relative',
-                }}>
-                  <div className="countdown-num" style={{
-                    fontFamily: "'Bebas Neue', sans-serif",
-                    fontSize: '3rem',
-                    color: '#F5F0E8',
-                    lineHeight: 1,
-                    letterSpacing: '0.04em',
-                    fontVariantNumeric: 'tabular-nums',
-                    display: 'block',
-                  }}>{value}</div>
-                  <div style={{
-                    fontFamily: "'DM Mono', monospace",
-                    fontSize: '0.5rem',
-                    letterSpacing: '0.2em',
-                    color: '#C8AA76',
-                    marginTop: '0.4rem',
-                    display: 'block',
-                  }}>{label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* RIGHT 40% -- Gold diagonal panel */}
-        <div className="hero-right" style={{
-          flex: '0 0 40%',
-          background: '#C8AA76',
-          clipPath: 'polygon(8% 0, 100% 0, 100% 100%, 0% 100%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '3rem 3rem 3rem 5rem',
-          position: 'relative',
-        }}>
-          {/* Giant stylized A letterform */}
-          <svg
-            viewBox="0 0 220 260"
-            style={{ width: '78%', maxWidth: '280px' }}
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="Athletics A"
-          >
-            {/* Outer A shape */}
-            <path
-              d="M110 8L210 252H170L152 204H68L50 252H10L110 8Z"
-              fill="#003831"
-            />
-            {/* Crossbar cutout (creates the hollow) */}
-            <rect x="72" y="168" width="76" height="20" fill="#C8AA76"/>
-            {/* Inner hollow triangle */}
-            <path
-              d="M110 52L168 220H140L122 176H98L80 220H52L110 52Z"
-              fill="#C8AA76"
-            />
-          </svg>
-
-          {/* EST. LAS VEGAS 2025 */}
-          <div style={{
-            position: 'absolute',
-            bottom: '2.25rem',
-            fontFamily: "'DM Mono', monospace",
-            fontSize: '0.6rem',
-            letterSpacing: '0.22em',
-            color: '#003831',
-            textTransform: 'uppercase',
-            textAlign: 'center',
-          }}>EST. LAS VEGAS 2025</div>
-        </div>
-      </section>
-
-      {/* ============ TICKER ============ */}
+      {/* ============ BREAKING TICKER ============ */}
       <div style={{
-        background: '#090C08',
-        borderTop: '1px solid #C8AA76',
-        borderBottom: '1px solid rgba(200,170,118,0.3)',
+        background: '#003831',
         overflow: 'hidden',
-        padding: '0.9rem 0',
-        position: 'relative',
+        padding: '0.55rem 0',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1001,
       }}>
         <div style={{
           display: 'inline-flex',
-          animation: 'ticker-scroll 40s linear infinite',
+          animation: 'ticker 50s linear infinite',
           whiteSpace: 'nowrap',
         }}>
-          {/* Two copies for seamless loop */}
           {[0, 1].map(i => (
             <span key={i} style={{
               fontFamily: "'DM Mono', monospace",
-              fontSize: '0.72rem',
-              letterSpacing: '0.14em',
+              fontSize: '0.62rem',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               color: '#C8AA76',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '2rem',
-              paddingRight: '2rem',
+              gap: '2.5rem',
+              paddingRight: '2.5rem',
             }}>
-              <span>2028 Opening Day Countdown</span>
-              <span style={{ color: '#003831', background: '#C8AA76', padding: '0.15rem 0.5rem', fontSize: '0.55rem' }}>*</span>
-              <span>Oakland Roots. Vegas Future.</span>
-              <span style={{ color: '#003831', background: '#C8AA76', padding: '0.15rem 0.5rem', fontSize: '0.55rem' }}>*</span>
-              <span>The Western Division Just Got Interesting.</span>
-              <span style={{ color: '#003831', background: '#C8AA76', padding: '0.15rem 0.5rem', fontSize: '0.55rem' }}>*</span>
-              <span>Desert Gold. Forever Green.</span>
-              <span style={{ color: '#003831', background: '#C8AA76', padding: '0.15rem 0.5rem', fontSize: '0.55rem' }}>*</span>
+              <span>⬥ Opening Day 2028 — The Desert Awaits</span>
+              <span>⬥ Stadium Construction On Track — Latest Updates</span>
+              <span>⬥ Oakland Roots. Vegas Future. Forever Green &amp; Gold.</span>
+              <span>⬥ 17 Stories. Independent Coverage. Zero Corporate Spin.</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* ============ THE STORY ============ */}
-      <section style={{
-        background: '#090C08',
-        padding: '9rem 3rem',
-        position: 'relative',
+      {/* ============ NAV ============ */}
+      <nav style={{
+        position: 'fixed',
+        top: '28px',
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        background: scrollY > 50 ? 'rgba(6,9,7,0.95)' : 'transparent',
+        backdropFilter: scrollY > 50 ? 'blur(12px)' : 'none',
+        borderBottom: scrollY > 50 ? '1px solid rgba(200,170,118,0.12)' : '1px solid transparent',
+        transition: 'all 0.3s',
+        padding: '0 3rem',
+        height: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
       }}>
-        <div className="story-cols" style={{
-          maxWidth: '1300px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '7rem',
-          alignItems: 'start',
-        }}>
-          {/* Left -- Pull quote */}
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            border: '2px solid #C8AA76',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <svg width="20" height="22" viewBox="0 0 22 24" fill="none">
+              <path d="M11 2L21 22H16.5L14.5 17H7.5L5.5 22H1L11 2Z" fill="#C8AA76"/>
+              <rect x="7" y="14" width="8" height="2.5" fill="#060907"/>
+            </svg>
+          </div>
           <div>
+            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.3rem', color: '#F5F0E8', letterSpacing: '0.08em', lineHeight: 1 }}>THE LV ATHLETICS</div>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.5rem', letterSpacing: '0.2em', color: '#C8AA76', textTransform: 'uppercase' }}>Independent Fan Coverage</div>
+          </div>
+        </Link>
+
+        <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
+          <Link href="/blog" className="nav-link">All Stories</Link>
+          <Link href="/blog/las-vegas-athletics-stadium-update-2026" className="nav-link">Stadium Watch</Link>
+          <Link href="/blog/oakland-to-sacramento-to-vegas-timeline" className="nav-link">The Journey</Link>
+          <a href="https://www.stubhub.com/las-vegas-athletics-tickets" target="_blank" rel="noopener" className="nav-link" style={{ color: '#C8AA76' }}>🎟️ Tickets</a>
+        </div>
+
+        <button className="mobile-toggle" onClick={() => setMobileNav(!mobileNav)} style={{
+          display: 'none',
+          width: '36px',
+          height: '36px',
+          background: 'none',
+          border: '1px solid rgba(200,170,118,0.3)',
+          color: '#C8AA76',
+          fontSize: '1.2rem',
+          cursor: 'pointer',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>{mobileNav ? '✕' : '☰'}</button>
+      </nav>
+
+      {/* Mobile nav dropdown */}
+      {mobileNav && (
+        <div style={{
+          position: 'fixed',
+          top: '88px',
+          left: 0,
+          right: 0,
+          background: 'rgba(6,9,7,0.98)',
+          zIndex: 999,
+          padding: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.5rem',
+          borderBottom: '1px solid rgba(200,170,118,0.2)',
+        }}>
+          <Link href="/blog" className="nav-link" onClick={() => setMobileNav(false)}>All Stories</Link>
+          <Link href="/blog/las-vegas-athletics-stadium-update-2026" className="nav-link" onClick={() => setMobileNav(false)}>Stadium Watch</Link>
+          <Link href="/blog/oakland-to-sacramento-to-vegas-timeline" className="nav-link" onClick={() => setMobileNav(false)}>The Journey</Link>
+        </div>
+      )}
+
+      {/* ============ HERO ============ */}
+      <section className="grain section-pad" style={{
+        minHeight: '100vh',
+        paddingTop: '120px',
+        padding: '120px 3rem 0',
+        background: 'linear-gradient(165deg, #003831 0%, #001A17 40%, #060907 100%)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Giant ghost A */}
+        <div aria-hidden="true" style={{
+          position: 'absolute',
+          fontFamily: "'Bebas Neue', sans-serif",
+          fontSize: 'min(85vw, 900px)',
+          color: 'rgba(200,170,118,0.025)',
+          top: '50%',
+          right: '-10%',
+          transform: 'translateY(-50%)',
+          lineHeight: 1,
+          pointerEvents: 'none',
+          userSelect: 'none',
+        }}>A</div>
+
+        {/* Desert landscape silhouette at bottom */}
+        <svg style={{ position: 'absolute', bottom: 0, left: 0, right: 0, width: '100%', height: '120px', zIndex: 2 }} viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,120 L0,80 Q120,40 240,65 Q360,90 480,50 Q600,10 720,35 Q840,60 960,25 Q1080,0 1200,40 Q1320,75 1440,55 L1440,120 Z" fill="#060907"/>
+        </svg>
+
+        <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 3 }}>
+          {/* Live badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.6rem',
+            marginBottom: '2rem',
+            animation: 'float-in 0.6s ease-out',
+          }}>
             <div style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              background: '#4ADE80',
+              animation: 'pulse 2s ease-in-out infinite',
+            }} />
+            <span style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: '0.62rem',
-              letterSpacing: '0.22em',
-              color: '#C8AA76',
+              letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              marginBottom: '2rem',
-            }}>The Story</div>
-            <blockquote style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(1.7rem, 2.8vw, 3rem)',
-              fontStyle: 'italic',
-              color: '#F5F0E8',
-              lineHeight: 1.2,
-              borderLeft: '4px solid #C8AA76',
-              paddingLeft: '2rem',
-            }}>
-              &ldquo;Every great team needs a city that matches its hunger.&rdquo;
-            </blockquote>
+              color: '#4ADE80',
+            }}>Live Coverage</span>
           </div>
 
-          {/* Right -- Editorial body */}
-          <div style={{
-            fontFamily: "'Source Serif 4', Georgia, serif",
-            fontSize: '1.05rem',
-            lineHeight: 1.85,
-            color: 'rgba(245,240,232,0.78)',
+          {/* COUNTDOWN — Hero position */}
+          <div style={{ marginBottom: '2.5rem', animation: 'float-in 0.6s ease-out 0.1s both' }}>
+            <div style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '0.58rem',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: 'rgba(200,170,118,0.6)',
+              marginBottom: '0.75rem',
+            }}>Opening Day 2028</div>
+            <div className="countdown-row" style={{ display: 'flex', gap: '0.5rem' }}>
+              {[
+                { val: mounted ? String(time.days) : '--', lbl: 'DAYS' },
+                { val: mounted ? pad(time.hours) : '--', lbl: 'HRS' },
+                { val: mounted ? pad(time.minutes) : '--', lbl: 'MIN' },
+                { val: mounted ? pad(time.seconds) : '--', lbl: 'SEC' },
+              ].map(({ val, lbl }) => (
+                <div className="countdown-cell" key={lbl} style={{
+                  background: 'rgba(0,0,0,0.5)',
+                  border: '1px solid rgba(200,170,118,0.15)',
+                  padding: '0.9rem 1rem 0.6rem',
+                  minWidth: '72px',
+                  textAlign: 'center',
+                  backdropFilter: 'blur(4px)',
+                }}>
+                  <div className="countdown-num" style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontSize: '2.8rem',
+                    color: '#C8AA76',
+                    lineHeight: 1,
+                    fontVariantNumeric: 'tabular-nums',
+                  }}>{val}</div>
+                  <div style={{
+                    fontFamily: "'DM Mono', monospace",
+                    fontSize: '0.45rem',
+                    letterSpacing: '0.2em',
+                    color: 'rgba(245,240,232,0.4)',
+                    marginTop: '0.3rem',
+                  }}>{lbl}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* HERO HEADLINE */}
+          <h1 className="hero-hl" style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: 'clamp(4rem, 9vw, 9rem)',
+            lineHeight: 0.88,
+            color: '#F5F0E8',
+            letterSpacing: '0.02em',
+            marginBottom: '2rem',
+            animation: 'float-in 0.6s ease-out 0.2s both',
           }}>
-            <p style={{ marginBottom: '1.75rem' }}>
-              The Oakland Athletics arrived in the East Bay in 1968, and for fifty-five years they were more than a baseball team. They were a character in the story of a city -- scrappy, under-resourced, and consistently more interesting than the money suggested they should be. Three World Series championships in the 1970s. The Moneyball revolution in the early 2000s. A playoff run from 13 games back in 2012 that defied every rational projection.
-            </p>
-            <p style={{ marginBottom: '1.75rem' }}>
-              The move to Las Vegas was not without pain. Oakland fans had a legitimate grievance -- a stadium negotiation that many believed was conducted in bad faith, a community that invested years of advocacy into a waterfront ballpark that never came. That history is real and it belongs in the record. A new city does not erase what came before.
-            </p>
-            <p>
-              What Las Vegas offers is something different: a city still writing its own sports identity, still figuring out what it means to have teams that play here year-round. The Athletics arrive not as conquerors but as the final piece of a transformation. The desert called. The franchise answered. What happens next is the story.
-            </p>
+            DESERT GOLD.<br />
+            <span style={{ color: '#C8AA76' }}>FOREVER</span> GREEN.
+          </h1>
+
+          <p style={{
+            fontFamily: "'Source Serif 4', Georgia, serif",
+            fontSize: '1.15rem',
+            lineHeight: 1.7,
+            color: 'rgba(245,240,232,0.6)',
+            maxWidth: '580px',
+            marginBottom: '3rem',
+            animation: 'float-in 0.6s ease-out 0.3s both',
+          }}>
+            Independent editorial coverage of the Las Vegas Athletics. Stadium updates, roster analysis, and the untold stories of a franchise finding its desert home.
+          </p>
+
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '6rem', animation: 'float-in 0.6s ease-out 0.4s both' }}>
+            <Link href="/blog" className="cta-btn" style={{ background: '#C8AA76', color: '#060907' }}>
+              Read Coverage →
+            </Link>
+            <a href="https://www.stubhub.com/las-vegas-athletics-tickets" target="_blank" rel="noopener" className="cta-btn">
+              🎟️ Find Tickets
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ============ LATEST FROM THE BLOG ============ */}
-      <section style={{
-        background: '#0C0F0A',
-        padding: '8rem 3rem',
+      {/* ============ FEATURED + SIDEBAR ============ */}
+      <section className="section-pad" style={{
+        background: '#060907',
+        padding: '6rem 3rem',
       }}>
-        <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
-          {/* Header */}
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          {/* Section header */}
           <div style={{
             display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '1.5rem',
             marginBottom: '3rem',
-            borderBottom: '1px solid rgba(200,170,118,0.18)',
-            paddingBottom: '1.5rem',
-            flexWrap: 'wrap',
-            gap: '1rem',
+            borderBottom: '1px solid rgba(200,170,118,0.12)',
+            paddingBottom: '1.25rem',
           }}>
-            <div>
-              <div style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.62rem',
-                letterSpacing: '0.22em',
-                color: '#C8AA76',
-                textTransform: 'uppercase',
-                marginBottom: '0.5rem',
-              }}>Latest Coverage</div>
-              <h2 style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                color: '#F5F0E8',
-                lineHeight: 1,
-              }}>From The Desk</h2>
-            </div>
-            <Link href="/blog" style={{
+            <div style={{
               fontFamily: "'DM Mono', monospace",
-              fontSize: '0.7rem',
-              letterSpacing: '0.18em',
+              fontSize: '0.58rem',
+              letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: '#C8AA76',
-              borderBottom: '1px solid rgba(200,170,118,0.4)',
-              paddingBottom: '2px',
-            }}>All Stories</Link>
+              background: 'rgba(200,170,118,0.08)',
+              padding: '0.35rem 0.75rem',
+              border: '1px solid rgba(200,170,118,0.15)',
+            }}>Latest</div>
+            <h2 style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+              color: '#F5F0E8',
+              fontWeight: 900,
+            }}>From The Desk</h2>
+            <Link href="/blog" style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '0.62rem',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: '#C8AA76',
+              marginLeft: 'auto',
+              opacity: 0.7,
+            }}>View All →</Link>
           </div>
 
-          {/* Featured 60% + 2 small 40% */}
-          <div className="blog-grid" style={{
+          <div className="hero-grid" style={{
             display: 'grid',
-            gridTemplateColumns: '3fr 2fr',
+            gridTemplateColumns: '1.6fr 1fr',
             gap: '2px',
-            background: 'rgba(200,170,118,0.08)',
+            background: 'rgba(200,170,118,0.06)',
           }}>
-            {/* Featured post */}
-            <Link href={`/blog/${featured.slug}`}
-              className="blog-card-featured"
-              style={{
-                background: '#090C08',
-                padding: '3.5rem',
-                display: 'block',
-                textDecoration: 'none',
-                color: '#F5F0E8',
-                transition: 'background 0.2s',
-              }}>
+            {/* FEATURED — big card */}
+            <Link href={`/blog/${hero.slug}`} className="hover-card" style={{
+              background: '#0C0F0A',
+              padding: '3rem',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+              minHeight: '420px',
+              position: 'relative',
+              overflow: 'hidden',
+            }}>
+              {/* Green gradient overlay */}
               <div style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.58rem',
-                letterSpacing: '0.2em',
-                color: '#C8AA76',
-                textTransform: 'uppercase',
-                border: '1px solid rgba(200,170,118,0.3)',
-                display: 'inline-block',
-                padding: '0.2rem 0.7rem',
-                marginBottom: '1.75rem',
-              }}>{featured.category}</div>
-              <h3 style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: 'clamp(1.4rem, 2.5vw, 2.3rem)',
-                lineHeight: 1.1,
-                color: '#F5F0E8',
-                marginBottom: '1.25rem',
-              }}>{featured.title}</h3>
-              <p style={{
-                fontFamily: "'Source Serif 4', Georgia, serif",
-                fontSize: '0.95rem',
-                lineHeight: 1.7,
-                color: 'rgba(245,240,232,0.6)',
-                marginBottom: '2.25rem',
-              }}>{featured.description}</p>
-              <span style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.68rem',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: '#C8AA76',
-                borderBottom: '1px solid #C8AA76',
-                paddingBottom: '2px',
-              }}>READ</span>
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(180deg, rgba(0,56,49,0.1) 0%, rgba(0,56,49,0.3) 100%)',
+                pointerEvents: 'none',
+              }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '0.55rem',
+                  letterSpacing: '0.2em',
+                  color: '#C8AA76',
+                  textTransform: 'uppercase',
+                  border: '1px solid rgba(200,170,118,0.3)',
+                  display: 'inline-block',
+                  padding: '0.25rem 0.75rem',
+                  marginBottom: '1.25rem',
+                }}>{hero.category}</div>
+                <h3 style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: 'clamp(1.5rem, 2.5vw, 2.4rem)',
+                  lineHeight: 1.1,
+                  color: '#F5F0E8',
+                  marginBottom: '1rem',
+                  fontWeight: 900,
+                }}>{hero.title}</h3>
+                <p style={{
+                  fontFamily: "'Source Serif 4', Georgia, serif",
+                  fontSize: '0.95rem',
+                  lineHeight: 1.65,
+                  color: 'rgba(245,240,232,0.55)',
+                  marginBottom: '1.5rem',
+                  maxWidth: '480px',
+                }}>{hero.description}</p>
+                <span style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: '#C8AA76',
+                  borderBottom: '1px solid #C8AA76',
+                  paddingBottom: '2px',
+                }}>Read Story →</span>
+              </div>
             </Link>
 
-            {/* 2 small posts stacked */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-              {small.map(post => (
-                <Link key={post.slug} href={`/blog/${post.slug}`}
-                  className="blog-card-small"
-                  style={{
-                    background: '#090C08',
-                    padding: '2.5rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    flex: 1,
-                    textDecoration: 'none',
-                    color: '#F5F0E8',
-                    transition: 'background 0.2s',
-                  }}>
+            {/* SIDEBAR — 3 stacked */}
+            <div className="hero-sidebar" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              {sidebar.map((post, i) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="hover-card" style={{
+                  background: '#0C0F0A',
+                  padding: '1.75rem 2rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  flex: 1,
+                  borderLeft: '3px solid transparent',
+                  transition: 'border-color 0.2s, background 0.2s',
+                }}>
                   <div style={{
                     fontFamily: "'DM Mono', monospace",
-                    fontSize: '0.55rem',
+                    fontSize: '0.5rem',
                     letterSpacing: '0.18em',
                     color: '#C8AA76',
                     textTransform: 'uppercase',
-                    background: 'rgba(200,170,118,0.1)',
-                    display: 'inline-block',
-                    padding: '0.2rem 0.55rem',
-                    marginBottom: '0.9rem',
-                  }}>{post.category}</div>
+                    marginBottom: '0.6rem',
+                    opacity: 0.7,
+                  }}>{post.category} · {post.date}</div>
                   <h4 style={{
                     fontFamily: "'Playfair Display', serif",
-                    fontSize: '1.15rem',
+                    fontSize: '1.05rem',
                     lineHeight: 1.25,
                     color: '#F5F0E8',
-                    flex: 1,
-                    marginBottom: '0.75rem',
+                    fontWeight: 700,
                   }}>{post.title}</h4>
-                  <div style={{
-                    fontFamily: "'DM Mono', monospace",
-                    fontSize: '0.58rem',
-                    letterSpacing: '0.1em',
-                    color: 'rgba(245,240,232,0.35)',
-                    marginTop: 'auto',
-                  }}>{post.date}</div>
                 </Link>
               ))}
             </div>
@@ -536,286 +509,492 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ STAT BAR ============ */}
-      <section style={{
+      {/* ============ EDITORIAL QUOTE ============ */}
+      <section className="grain section-pad" style={{
         background: '#003831',
-        padding: '5rem 3rem',
+        padding: '8rem 3rem',
+        position: 'relative',
+        overflow: 'hidden',
       }}>
-        <div className="stat-grid" style={{
-          maxWidth: '1300px',
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontFamily: "'Playfair Display', serif",
+          fontSize: 'min(30vw, 400px)',
+          color: 'rgba(200,170,118,0.03)',
+          lineHeight: 1,
+          pointerEvents: 'none',
+        }}>&ldquo;</div>
+
+        <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 2 }}>
+          <blockquote style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)',
+            fontStyle: 'italic',
+            color: '#F5F0E8',
+            lineHeight: 1.3,
+            marginBottom: '2rem',
+          }}>
+            &ldquo;Every great franchise needs a city that matches its hunger. Las Vegas didn&rsquo;t just get a team &mdash; it got a legacy 124 years in the making.&rdquo;
+          </blockquote>
+          <div style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '0.62rem',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: '#C8AA76',
+          }}>The LV Athletics Editorial</div>
+        </div>
+      </section>
+
+      {/* ============ STATS ============ */}
+      <section className="section-pad" style={{
+        background: '#060907',
+        padding: '6rem 3rem',
+        borderTop: '1px solid rgba(200,170,118,0.08)',
+      }}>
+        <div className="stat-row" style={{
+          maxWidth: '1400px',
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '2rem',
         }}>
           {[
-            { num: '98', label: "Years of A's Baseball" },
-            { num: '3', label: 'World Series Titles (Oakland Era)' },
-            { num: '2028', label: 'First Vegas Pitch' },
-            { num: '18', label: 'Seasons Until Now' },
-          ].map(({ num, label }) => (
-            <div className="stat-cell" key={num} style={{ textAlign: 'center', padding: '2rem 1.5rem' }}>
-              <div style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: 'clamp(4rem, 6vw, 7rem)',
-                color: '#C8AA76',
-                lineHeight: 1,
-                marginBottom: '0.6rem',
-                letterSpacing: '0.02em',
-              }}>{num}</div>
+            { num: '1901', label: 'Franchise Founded', sub: 'Philadelphia' },
+            { num: '9', label: 'World Series Titles', sub: 'And counting' },
+            { num: '2028', label: 'First Desert Pitch', sub: 'Opening Day' },
+            { num: '33K', label: 'Seat Stadium', sub: 'State of the art' },
+          ].map(({ num, label, sub }) => (
+            <div key={num} style={{
+              textAlign: 'center',
+              padding: '2rem 1rem',
+              borderRight: '1px solid rgba(200,170,118,0.08)',
+            }}>
+              <div className="stat-num">{num}</div>
               <div style={{
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '0.62rem',
-                letterSpacing: '0.15em',
-                color: '#F5F0E8',
+                letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                opacity: 0.65,
-                lineHeight: 1.4,
+                color: '#F5F0E8',
+                marginTop: '0.5rem',
+                opacity: 0.7,
               }}>{label}</div>
+              <div style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.72rem',
+                color: 'rgba(245,240,232,0.35)',
+                marginTop: '0.25rem',
+              }}>{sub}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ============ MIGRATION MAP ============ */}
-      <section style={{
+      {/* ============ THE JOURNEY — MIGRATION TIMELINE ============ */}
+      <section className="section-pad" style={{
         background: '#F5F0E8',
         padding: '8rem 3rem',
       }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div style={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: '0.62rem',
-            letterSpacing: '0.22em',
-            color: '#003831',
-            textTransform: 'uppercase',
-            marginBottom: '0.75rem',
-          }}>The Migration</div>
-          <h2 style={{
-            fontFamily: "'Playfair Display', serif",
-            fontSize: 'clamp(1.8rem, 3vw, 3rem)',
-            color: '#090C08',
-            marginBottom: '5rem',
-            lineHeight: 1.1,
-          }}>A Franchise in Motion</h2>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+            <div style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '0.6rem',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#003831',
+              marginBottom: '0.75rem',
+            }}>124 Years of Baseball</div>
+            <h2 style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              color: '#060907',
+              fontWeight: 900,
+            }}>The Migration</h2>
+          </div>
 
-          {/* Timeline row */}
-          <div className="migration-row" style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-            position: 'relative',
-          }}>
+          {/* Timeline */}
+          <div style={{ position: 'relative' }}>
             {/* Connecting line */}
             <div style={{
               position: 'absolute',
-              top: '10px',
-              left: '5%',
-              right: '5%',
+              top: '20px',
+              left: '10%',
+              right: '10%',
               height: '2px',
-              background: 'rgba(0,56,49,0.15)',
-              zIndex: 0,
+              background: 'linear-gradient(90deg, rgba(0,56,49,0.15) 0%, rgba(0,56,49,0.3) 70%, rgba(200,170,118,0.6) 100%)',
             }} />
 
-            {/* Philadelphia */}
-            {[
-              { city: 'Philadelphia', year: '1901', dot: 12, color: '#8B3A0F', sub: null, yearColor: '#003831', yearSize: '1.8rem' },
-            ].map(({ city, year, dot, color, sub, yearColor, yearSize }) => (
-              <div key={city} style={{ textAlign: 'center', flex: 1, position: 'relative', zIndex: 1 }}>
-                <div style={{
-                  width: `${dot}px`, height: `${dot}px`,
-                  borderRadius: '50%',
-                  background: color,
-                  margin: `${(18 - dot) / 2}px auto 1.5rem`,
-                  position: 'relative', zIndex: 1,
-                }} />
-                <div style={{
-                  fontFamily: "'DM Mono', monospace",
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.1em',
-                  color: '#090C08',
-                  textTransform: 'uppercase',
-                  marginBottom: '0.3rem',
-                }}>{city}</div>
-                <div style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: yearSize,
-                  color: yearColor,
-                  lineHeight: 1,
-                }}>{year}</div>
-                {sub && <div style={{
-                  fontFamily: "'DM Mono', monospace",
-                  fontSize: '0.58rem',
-                  letterSpacing: '0.1em',
-                  color: '#8B3A0F',
-                  marginTop: '0.3rem',
-                }}>{sub}</div>}
-              </div>
-            ))}
-
-            {/* Arrow */}
-            <div className="migration-arrow" style={{ color: 'rgba(0,56,49,0.3)', fontSize: '1.2rem', paddingTop: '0', flexShrink: 0, margin: '0 0.5rem' }}>--</div>
-
-            {/* Kansas City */}
-            <div style={{ textAlign: 'center', flex: 1, position: 'relative', zIndex: 1 }}>
-              <div style={{
-                width: '12px', height: '12px',
-                borderRadius: '50%',
-                background: '#8B3A0F',
-                margin: '3px auto 1.5rem',
-              }} />
-              <div style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.72rem',
-                letterSpacing: '0.1em',
-                color: '#090C08',
-                textTransform: 'uppercase',
-                marginBottom: '0.3rem',
-              }}>Kansas City</div>
-              <div style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: '1.8rem',
-                color: '#003831',
-                lineHeight: 1,
-              }}>1955</div>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              position: 'relative',
+            }}>
+              {[
+                { city: 'Philadelphia', year: '1901', size: 12, color: '#8B3A0F', sub: '54 seasons' },
+                { city: 'Kansas City', year: '1955', size: 12, color: '#8B3A0F', sub: '13 seasons' },
+                { city: 'Oakland', year: '1968', size: 18, color: '#003831', sub: '57 seasons' },
+                { city: 'Sacramento', year: '2025', size: 14, color: '#8B3A0F', sub: '3 seasons' },
+                { city: 'Las Vegas', year: '2028', size: 20, color: '#C8AA76', sub: 'FOREVER', pulse: true },
+              ].map(({ city, year, size, color, sub, pulse }) => (
+                <div key={city} style={{ textAlign: 'center', flex: 1 }}>
+                  <div style={{
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    borderRadius: '50%',
+                    background: color,
+                    margin: `${(22 - size) / 2}px auto 1.25rem`,
+                    ...(pulse ? { animation: 'pulse 2s ease-in-out infinite' } : {}),
+                  }} />
+                  <div style={{
+                    fontFamily: "'DM Mono', monospace",
+                    fontSize: '0.7rem',
+                    letterSpacing: '0.08em',
+                    color: '#060907',
+                    textTransform: 'uppercase',
+                    fontWeight: 500,
+                    marginBottom: '0.25rem',
+                  }}>{city}</div>
+                  <div style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontSize: pulse ? '2rem' : '1.6rem',
+                    color: pulse ? '#C8AA76' : '#003831',
+                    lineHeight: 1,
+                  }}>{year}</div>
+                  <div style={{
+                    fontFamily: "'DM Mono', monospace",
+                    fontSize: '0.52rem',
+                    letterSpacing: '0.1em',
+                    color: pulse ? '#C8AA76' : '#8B3A0F',
+                    marginTop: '0.35rem',
+                    textTransform: 'uppercase',
+                  }}>{sub}</div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="migration-arrow" style={{ color: 'rgba(0,56,49,0.3)', fontSize: '1.2rem', flexShrink: 0, margin: '0 0.5rem' }}>--</div>
-
-            {/* Oakland -- special treatment */}
-            <div style={{ textAlign: 'center', flex: 1, position: 'relative', zIndex: 1 }}>
-              <div style={{
-                width: '18px', height: '18px',
-                borderRadius: '50%',
-                background: '#003831',
-                border: '3px solid #003831',
-                margin: '0 auto 1.5rem',
-              }} />
-              <div style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.8rem',
-                letterSpacing: '0.1em',
-                color: '#090C08',
-                textTransform: 'uppercase',
-                marginBottom: '0.3rem',
-                fontWeight: 500,
-              }}>Oakland</div>
-              <div style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: '2.2rem',
-                color: '#003831',
-                lineHeight: 1,
-              }}>1968</div>
-              <div style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.58rem',
-                letterSpacing: '0.1em',
-                color: '#8B3A0F',
-                marginTop: '0.4rem',
-              }}>47 years</div>
-            </div>
-
-            <div className="migration-arrow" style={{ color: 'rgba(0,56,49,0.3)', fontSize: '1.2rem', flexShrink: 0, margin: '0 0.5rem' }}>--</div>
-
-            {/* Las Vegas -- pulsing gold */}
-            <div style={{ textAlign: 'center', flex: 1, position: 'relative', zIndex: 1 }}>
-              <div style={{
-                width: '18px', height: '18px',
-                borderRadius: '50%',
-                background: '#C8AA76',
-                margin: '0 auto 1.5rem',
-                animation: 'pulse-dot 2s ease-in-out infinite',
-              }} />
-              <div style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.8rem',
-                letterSpacing: '0.1em',
-                color: '#090C08',
-                textTransform: 'uppercase',
-                marginBottom: '0.3rem',
-                fontWeight: 500,
-              }}>Las Vegas</div>
-              <div style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: '2.2rem',
-                color: '#C8AA76',
-                lineHeight: 1,
-              }}>2028</div>
-              <div style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '0.58rem',
-                letterSpacing: '0.1em',
-                color: '#C8AA76',
-                marginTop: '0.4rem',
-              }}>COMING 2028</div>
-            </div>
+          <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+            <Link href="/blog/oakland-to-sacramento-to-vegas-timeline" className="cta-btn" style={{ color: '#003831', borderColor: '#003831' }}>
+              Read The Full Journey →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ============ FOOTER ============ */}
-      <footer style={{
-        background: '#090C08',
-        borderTop: '1px solid rgba(200,170,118,0.12)',
-        padding: '4.5rem 3rem',
+      {/* ============ MORE STORIES GRID ============ */}
+      <section className="section-pad" style={{
+        background: '#060907',
+        padding: '6rem 3rem',
       }}>
-        <div style={{
-          maxWidth: '1300px',
-          margin: '0 auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '1.75rem',
-          textAlign: 'center',
-        }}>
-          {/* Gold A mark */}
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <div style={{
-            width: '52px', height: '52px',
-            borderRadius: '50%',
-            border: '2px solid #C8AA76',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '2.5rem',
+            borderBottom: '1px solid rgba(200,170,118,0.08)',
+            paddingBottom: '1rem',
           }}>
-            <svg width="26" height="28" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11 2L21 22H16.5L14.5 17H7.5L5.5 22H1L11 2Z" fill="#C8AA76"/>
-              <rect x="7" y="14" width="8" height="2.5" fill="#090C08"/>
-            </svg>
+            <h2 style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: '1.8rem',
+              color: '#F5F0E8',
+              fontWeight: 700,
+            }}>More Coverage</h2>
+            {/* Category pills */}
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              {categories.slice(0, 4).map(cat => (
+                <Link key={cat} href="/blog" style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '0.55rem',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#C8AA76',
+                  border: '1px solid rgba(200,170,118,0.2)',
+                  padding: '0.3rem 0.7rem',
+                  opacity: 0.6,
+                  transition: 'opacity 0.2s',
+                }}>{cat}</Link>
+              ))}
+            </div>
           </div>
 
+          <div className="blog-grid-3" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '2px',
+            background: 'rgba(200,170,118,0.05)',
+          }}>
+            {posts.slice(3, 9).map(post => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="hover-card" style={{
+                background: '#0C0F0A',
+                padding: '2.25rem',
+                display: 'flex',
+                flexDirection: 'column',
+              }}>
+                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{post.emoji}</div>
+                <div style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '0.5rem',
+                  letterSpacing: '0.18em',
+                  color: '#C8AA76',
+                  textTransform: 'uppercase',
+                  marginBottom: '0.6rem',
+                  opacity: 0.6,
+                }}>{post.category}</div>
+                <h3 style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: '1.1rem',
+                  lineHeight: 1.25,
+                  color: '#F5F0E8',
+                  fontWeight: 700,
+                  marginBottom: '0.75rem',
+                  flex: 1,
+                }}>{post.title}</h3>
+                <div style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '0.55rem',
+                  color: 'rgba(245,240,232,0.3)',
+                  letterSpacing: '0.1em',
+                }}>{post.date}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ TICKETS & GEAR CTA ============ */}
+      <section className="grain section-pad" style={{
+        background: 'linear-gradient(135deg, #003831 0%, #001A17 100%)',
+        padding: '6rem 3rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <div style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '0.58rem',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#C8AA76',
+            marginBottom: '1rem',
+          }}>Affiliate Partners</div>
+          <h2 style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            color: '#F5F0E8',
+            marginBottom: '1rem',
+            letterSpacing: '0.02em',
+          }}>TICKETS &amp; GEAR</h2>
           <p style={{
             fontFamily: "'Source Serif 4', Georgia, serif",
             fontSize: '0.95rem',
-            color: '#F5F0E8',
-            opacity: 0.45,
-            maxWidth: '520px',
-            lineHeight: 1.6,
-          }}>thelvathletics.com -- Covering the Las Vegas Athletics from Day Zero.</p>
+            color: 'rgba(245,240,232,0.55)',
+            maxWidth: '500px',
+            lineHeight: 1.7,
+            marginBottom: '2.5rem',
+          }}>
+            Support independent coverage. Purchases through our affiliate links keep the lights on at zero extra cost to you.
+          </p>
 
-          <div style={{ display: 'flex', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            {[
-              ['Blog', '/blog'],
-              ['The Journey', '/blog/oakland-to-sacramento-to-vegas-timeline'],
-              ['2028', '/blog/las-vegas-athletics-stadium-update-2026'],
-            ].map(([label, href]) => (
-              <Link key={label} href={href} style={{
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <a href="https://www.stubhub.com/las-vegas-athletics-tickets/?PCID=lvathletics-20" target="_blank" rel="noopener" className="cta-btn" style={{ background: '#C8AA76', color: '#003831', borderColor: '#C8AA76' }}>
+              🎟️ StubHub Tickets
+            </a>
+            <a href="https://www.seatgeek.com/athletics-tickets?aid=lvathletics-20" target="_blank" rel="noopener" className="cta-btn">
+              🎫 SeatGeek
+            </a>
+            <a href="https://www.fanatics.com/mlb/oakland-athletics/o-2793+t-53395338?aff=lvathletics-20" target="_blank" rel="noopener" className="cta-btn">
+              👕 Fanatics Gear
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ NEWSLETTER ============ */}
+      <section className="section-pad" style={{
+        background: '#060907',
+        padding: '5rem 3rem',
+        borderTop: '1px solid rgba(200,170,118,0.08)',
+      }}>
+        <div style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          textAlign: 'center',
+        }}>
+          <div style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '0.58rem',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#C8AA76',
+            marginBottom: '0.75rem',
+          }}>Stay Connected</div>
+          <h2 style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: '2rem',
+            color: '#F5F0E8',
+            marginBottom: '0.75rem',
+            fontWeight: 700,
+          }}>The Press Box</h2>
+          <p style={{
+            fontFamily: "'Source Serif 4', Georgia, serif",
+            fontSize: '0.95rem',
+            color: 'rgba(245,240,232,0.5)',
+            marginBottom: '2rem',
+            lineHeight: 1.6,
+          }}>
+            Stadium updates. Roster moves. Independent analysis. Delivered when it matters.
+          </p>
+          <form onSubmit={(e) => e.preventDefault()} style={{
+            display: 'flex',
+            gap: '0',
+            maxWidth: '480px',
+            margin: '0 auto',
+          }}>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              style={{
+                flex: 1,
+                padding: '0.9rem 1.25rem',
+                background: 'rgba(200,170,118,0.05)',
+                border: '1px solid rgba(200,170,118,0.2)',
+                borderRight: 'none',
+                color: '#F5F0E8',
                 fontFamily: "'DM Mono', monospace",
-                fontSize: '0.68rem',
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: '#C8AA76',
-                opacity: 0.65,
-                transition: 'opacity 0.2s',
-              }}>{label}</Link>
+                fontSize: '0.78rem',
+                outline: 'none',
+              }}
+            />
+            <button type="submit" style={{
+              padding: '0.9rem 1.75rem',
+              background: '#C8AA76',
+              border: '1px solid #C8AA76',
+              color: '#060907',
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '0.68rem',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+              fontWeight: 500,
+            }}>Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+      {/* ============ FOOTER ============ */}
+      <footer className="section-pad" style={{
+        background: '#060907',
+        borderTop: '1px solid rgba(200,170,118,0.08)',
+        padding: '5rem 3rem 3rem',
+      }}>
+        <div className="footer-grid" style={{
+          maxWidth: '1400px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '2fr 1fr 1fr 1fr',
+          gap: '3rem',
+          marginBottom: '4rem',
+        }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+              <div style={{
+                width: '36px', height: '36px', borderRadius: '50%', border: '2px solid #C8AA76',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg width="18" height="20" viewBox="0 0 22 24" fill="none">
+                  <path d="M11 2L21 22H16.5L14.5 17H7.5L5.5 22H1L11 2Z" fill="#C8AA76"/>
+                  <rect x="7" y="14" width="8" height="2.5" fill="#060907"/>
+                </svg>
+              </div>
+              <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.1rem', color: '#F5F0E8', letterSpacing: '0.06em' }}>THE LV ATHLETICS</span>
+            </div>
+            <p style={{
+              fontFamily: "'Source Serif 4', Georgia, serif",
+              fontSize: '0.85rem',
+              color: 'rgba(245,240,232,0.4)',
+              lineHeight: 1.65,
+              maxWidth: '320px',
+            }}>Independent fan coverage of the Las Vegas Athletics. Not affiliated with the Athletics organization or Major League Baseball.</p>
+          </div>
+
+          <div>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C8AA76', marginBottom: '1.25rem' }}>Coverage</div>
+            {['Blog', 'Stadium Watch', 'Roster Analysis', 'Fan Guide'].map(link => (
+              <Link key={link} href="/blog" style={{
+                display: 'block',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.82rem',
+                color: 'rgba(245,240,232,0.45)',
+                marginBottom: '0.65rem',
+                transition: 'color 0.2s',
+              }}>{link}</Link>
             ))}
           </div>
 
-          <p style={{
+          <div>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C8AA76', marginBottom: '1.25rem' }}>Network</div>
+            {[
+              ['TheLVAs.com', 'https://thelvas.com'],
+              ['LV Athletics Nation', 'https://lvathleticsnation.com'],
+            ].map(([name, url]) => (
+              <a key={name} href={url} target="_blank" rel="noopener" style={{
+                display: 'block',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.82rem',
+                color: 'rgba(245,240,232,0.45)',
+                marginBottom: '0.65rem',
+              }}>{name}</a>
+            ))}
+          </div>
+
+          <div>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C8AA76', marginBottom: '1.25rem' }}>Tickets</div>
+            {[
+              ['StubHub', 'https://www.stubhub.com/las-vegas-athletics-tickets'],
+              ['SeatGeek', 'https://www.seatgeek.com/athletics-tickets'],
+              ['Fanatics', 'https://www.fanatics.com/mlb/oakland-athletics'],
+            ].map(([name, url]) => (
+              <a key={name} href={url} target="_blank" rel="noopener" style={{
+                display: 'block',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.82rem',
+                color: 'rgba(245,240,232,0.45)',
+                marginBottom: '0.65rem',
+              }}>{name}</a>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div style={{
+          borderTop: '1px solid rgba(200,170,118,0.06)',
+          paddingTop: '2rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '1rem',
+        }}>
+          <span style={{
             fontFamily: "'DM Mono', monospace",
-            fontSize: '0.6rem',
+            fontSize: '0.55rem',
             letterSpacing: '0.1em',
-            color: '#F5F0E8',
-            opacity: 0.2,
-          }}>Fan site. Not affiliated with the Athletics organization. &copy; 2026</p>
+            color: 'rgba(245,240,232,0.2)',
+          }}>&copy; 2026 thelvathletics.com — Fan site. Independent coverage.</span>
+          <span style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '0.55rem',
+            letterSpacing: '0.1em',
+            color: 'rgba(245,240,232,0.15)',
+          }}>Oakland → Vegas. The story continues.</span>
         </div>
       </footer>
     </>
