@@ -1,3 +1,134 @@
+
+  {
+    slug: "john-fisher-as-full-controversy-explained",
+    title: "John Fisher and the A's: The Full Controversy Explained",
+    description: "A definitive deep dive into the cheapskate ownership, the Oakland betrayal, and the path that led the Athletics to Las Vegas.",
+    date: "March 9, 2026",
+    category: "Editorial",
+    emoji: "🔥",
+    body: `
+<h2>The Most Despised Man in Baseball?</h2>
+<p>In the long history of Major League Baseball, there have been villains. There have been owners who lost money, owners who lost games, and owners who lost their minds. But John Fisher, the reclusive heir to the Gap clothing fortune, has achieved a singular status. He is the man who didn't just move a team—he methodically dismantled a community's soul to save a fraction of a billionaire's portfolio.</p>
+<p>To understand the current state of the Las Vegas Athletics, one must understand the scorched earth left behind in Oakland. This isn't just a story about a stadium; it’s a case study in corporate extraction, neglect, and the ultimate betrayal of a fan base that gave everything while receiving nothing but disrespect in return.</p>
+
+<h2>The Cheapskate Era: Slashing the Pulse of a Franchise</h2>
+<p>John Fisher took control of the Athletics in 2005. At the time, the A's were the "Moneyball" darlings—a team that competed against giants on a budget. But under Fisher, "Moneyball" stopped being a clever competitive advantage and started being a convenient excuse for austerity. While other mid-market teams eventually spent to win, Fisher's A's became a developmental laboratory for the rest of the league.</p>
+<p>The payroll slashing wasn't just about saving money; it was about stripping the team of its identity. Every time a star player captured the heart of Oakland, they were shipped out. Matt Chapman, Matt Olson, Chris Bassitt, Sean Manaea, Marcus Semien—the list of All-Stars sold for pennies on the dollar is an indictment of an owner who viewed players as depreciating assets rather than the heart of a franchise. By the time the team reached its final years in Oakland, the roster was a collection of Triple-A talent and placeholders, a deliberate attempt to suppress attendance and justify a relocation.</p>
+
+<h2>The Howard Terminal Saga: A Negotiated Deception</h2>
+<p>For years, the A's leadership, led by Fisher and his hatchet-man Dave Kaval, insisted their "Parallel Paths" (Oakland vs. Las Vegas) were genuine. They proposed a multi-billion dollar waterfront stadium at Howard Terminal in Oakland. The city, despite its financial challenges, stepped up. They secured hundreds of millions in infrastructure grants. They cleared environmental hurdles that usually take decades. They did the work.</p>
+<p>But whenever the finish line appeared, Fisher moved the goalposts. The project was never about the stadium; it was about the massive real estate development surrounding it. When the interest rates rose and the real estate market cooled, Fisher pivoted. The "Oakland is our home" banners were ripped down, replaced by a sudden, desperate craving for the Nevada desert.</p>
+
+<h2>Selling Out the Community: The Sacramento Stopover</h2>
+<p>Perhaps the most insulting chapter of the saga is the interim period. After refusing to negotiate a fair lease extension with the city of Oakland—a city that had hosted them for 56 years—Fisher decided to move the team to a minor league park in Sacramento. Sutter Health Park, a 14,000-seat Triple-A stadium, will host a Major League team for three years. It is a humiliation for the sport of baseball and a final middle finger to the fans in the East Bay.</p>
+
+<h2>The "Sell The Team" Movement</h2>
+<p>The response from the fans was nothing short of heroic. The "Reverse Boycott" of 2023 saw 27,000 fans pack the Coliseum, not to support Fisher, but to tell him—and the world—to "Sell The Team." Thousands wore green t-shirts with that simple, powerful demand. They stayed in the parking lot in protest. They flew planes over the stadium with banners. They showed that the fans weren't the problem—the leadership was.</p>
+<p>Fisher ignored them. He sat in his private box, sheltered from the anger of the people whose heritage he was auctioning off. The move to Las Vegas was approved by MLB owners, a group of billionaires protecting one of their own from the consequences of his own incompetence.</p>
+
+<h2>Public Funding and the Vegas Fight</h2>
+<p>Even in Las Vegas, the controversy follows. The $380 million in public funding granted by the Nevada Legislature was met with fierce opposition. "Schools Over Stadiums," a teacher-led movement, has fought the deal every step of the way, pointing out that Nevada ranks near the bottom in education while handing out welfare to a billionaire for a 9-acre ballpark footprint that many still believe is too small.</p>
+
+<h2>The Definitive Piece: Why It Matters</h2>
+<p>The Las Vegas A's will play in 2028. There will be lights, there will be a roof, and there will be tourists. But a franchise built on the foundation of betrayal carries a heavy burden. For the fans in Oakland, the "Sell The Team" chants will never truly stop. For the fans in Vegas, the question remains: if he did it to them, what's to stop him from doing it to you?</p>
+<p>This controversy isn't an "Oakland problem." It's a John Fisher problem. And until the ownership changes, the cloud over the Athletics will remain, no matter how bright the Vegas sun shines.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "las-vegas-as-2026-sacramento-schedule-guide",
+    title: "Las Vegas A's 2026 Sacramento Schedule: Every Game, Every Way to Watch",
+    description: "The complete guide to the 2026 season at Sutter Health Park. How to travel, where to stream, and the best ways to catch the A's in their interim home.",
+    date: "March 9, 2026",
+    category: "Game Day",
+    emoji: "📅",
+    body: `
+<h2>The Sacramento Era Continues</h2>
+<p>As construction continues on the Las Vegas Strip, the Athletics return to Sacramento for the second year of their three-year residency at Sutter Health Park. It remains one of the most unique settings in Major League history—a Triple-A ballpark acting as a temporary sanctuary for a franchise in flight. For fans in Las Vegas, following the team in 2026 requires a bit of planning, a subscription or two, and perhaps a weekend trip up North.</p>
+
+<h2>The 2026 Schedule Highlights</h2>
+<p>The 2026 season kicks off with a challenging stretch. Because Sutter Health Park is a smaller venue, the atmosphere is intimate—every game feels like a "big event." Key series to watch include the April visit from the New York Yankees and the late-summer showdown with the Houston Astros. The home schedule is packed with weekend series designed to attract traveling fans from both the Bay Area and Southern Nevada.</p>
+
+<h2>Sutter Health Park: The Fan Experience</h2>
+<p>Watching a game at Sutter Health Park is unlike any other MLB experience. With a capacity of just 14,000, you are remarkably close to the action. The "Home Run Terrace" in right field remains the most popular spot for social fans, offering a grass-berm experience that feels more like a picnic than a professional sports venue. However, be warned: Sacramento temperatures in July and August can easily rival Las Vegas, often exceeding 100 degrees. With limited shade, hydration and sunscreen are your primary equipment.</p>
+
+<h2>How to Watch: TV and Streaming</h2>
+<p>For fans staying in Las Vegas, catching the games requires navigating the regional sports network (RSN) landscape. Most games will be broadcast on the local carrier, but with the move, streaming has become the preferred method for the younger fan base. MLB.TV remains the gold standard, though local blackout rules in Las Vegas still apply unless you are using a provider that carries the local A's feed. For those cutting the cord, several digital platforms now offer "Single Team" packages that are more affordable than a full cable subscription.</p>
+
+<h2>Vegas to Sacramento: The Travel Guide</h2>
+<p>If you're planning to make the trip from the 702 to the 916, you have two main options:
+<ul>
+  <li><strong>Flying:</strong> Southwest Airlines offers multiple daily non-stops from Harry Reid (LAS) to Sacramento International (SMF). The flight is roughly 90 minutes. From SMF, it's a quick 15-minute rideshare to West Sacramento and the stadium area.</li>
+  <li><strong>Driving:</strong> It's a long haul—about 8 to 9 hours depending on traffic. You'll take US-95 North through the heart of Nevada, eventually cutting over to California. It's a beautiful, desolate drive, but not for the faint of heart.</li>
+</ul>
+</p>
+
+<h2>Tailgating at Sutter Health</h2>
+<p>The tailgating scene in West Sacramento is more relaxed than the old Coliseum parking lot. The lots surrounding the park are smaller, so the energy is concentrated. The "Barn" nearby has become the unofficial pre-game headquarters, offering local craft beers and an outdoor area that captures the Sacramento summer vibe perfectly. If you're looking for Vegas-style energy, you won't find it here—this is a community baseball vibe through and through.</p>
+
+<h2>Best Bars in Vegas to Catch the Game</h2>
+<p>If you aren't traveling, several Las Vegas sports bars have become the de facto "A's Hubs" for the 2026 season. Spots like <strong>The Front Yard at Ellis Island</strong> or <strong>Beerhaus at The Park</strong> consistently show the games with sound, providing a sense of community for the growing Vegas fan base. Look for "Athletics Watch Party" events scheduled for the Friday night games of major series.</p>
+
+<p>Whether you're in the stands at Sutter Health or on a barstool on the Strip, the 2026 season is a vital bridge to the future. Make sure your calendar is marked—baseball is a daily grind, even in transition.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "las-vegas-as-top-prospects-2026-watch-list",
+    title: "Every Las Vegas A's Prospect to Watch in 2026 and Beyond",
+    description: "The future is arriving. A deep dive into the top 10 prospects in the A's system and how they fit into the 2028 Las Vegas roster.",
+    date: "March 9, 2026",
+    category: "Roster Intel",
+    emoji: "⭐",
+    body: `
+<h2>The Foundation of the 2028 Vegas Roster</h2>
+<p>While the headlines are dominated by stadium renderings and ownership drama, the actual success of the Las Vegas Athletics will be determined in places like Lansing, Midland, and Las Vegas (Triple-A). The A's farm system has undergone a major infusion of talent over the last two years, shifting from a bottom-tier group to a top-10 system in baseball. These are the names you will be cheering for when the roof opens on the Strip in 2028.</p>
+
+<h2>1. Jacob Wilson (SS) - The Contact King</h2>
+<p><strong>Scouting Report:</strong> Wilson is perhaps the most unique prospect in baseball. His bat-to-ball skills are legendary; he simply does not strike out. In an era of high-velocity swing-and-miss, Wilson is a throwback. He has refined his defensive range at shortstop and looks like a Huntington-caliber defender.
+<br><strong>ETA:</strong> Mid-2026. Wilson is the centerpiece of the future infield.</p>
+
+<h2>2. Luis Morales (RHP) - The Cuban Flame-Thrower</h2>
+<p><strong>Scouting Report:</strong> Morales features an effortless 98-100 mph fastball and a slider that disappears. Since signing out of Cuba, his command has improved significantly. He has "Ace" potential and could be the Opening Day starter for the 2028 Vegas opener.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>3. Denzel Clarke (OF) - The Five-Tool Freak</h2>
+<p><strong>Scouting Report:</strong> Clarke has the highest ceiling in the system. Standing 6'5", he has light-tower power and elite speed. His strikeout rate was the only concern, but 2025 saw him make major adjustments to his swing plane. He is a highlight reel waiting to happen.
+<br><strong>ETA:</strong> Late 2026.</p>
+
+<h2>4. Steven Echavarria (RHP) - The Polished Projection</h2>
+<p><strong>Scouting Report:</strong> A high-school pick who has matured quickly. Echavarria has a four-pitch mix and poise that belies his age. He isn't just a thrower; he’s a pitcher. His "stuff" continues to tick up as he fills out his frame.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>5. Myles Naylor (3B) - The Next Generation</h2>
+<p><strong>Scouting Report:</strong> The youngest of the Naylor brothers, Myles has the most raw power of the bunch. He’s a natural third baseman with a cannon for an arm. If he can maintain his plate discipline, he is a perennial 30-home run threat in the making.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>6. Henry Bolte (OF) - Power and Speed</h2>
+<p><strong>Scouting Report:</strong> Like Clarke, Bolte is an elite athlete. He has a massive "power-speed" combo that translates well to the modern game. His 2025 season in High-A was a breakout, showing he can handle advanced velocity.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>7. Colby Thomas (OF) - The Sneaky Star</h2>
+<p><strong>Scouting Report:</strong> All Thomas does is hit. He’s been one of the most productive hitters in the minors since being drafted. He may not have the "tools" of a Clarke, but his "at-bat quality" is through the roof.
+<br><strong>ETA:</strong> 2026.</p>
+
+<h2>8. Daniel Susac (C) - The Anchor</h2>
+<p><strong>Scouting Report:</strong> A big, physical catcher who can handle a staff and provide pop from the right side. The A's have been patient with his development, focusing on his game-calling. He projects as a solid everyday Major League catcher.
+<br><strong>ETA:</strong> 2026.</p>
+
+<h2>9. Ryan Lasko (OF) - The Defensive Specialist</h2>
+<p><strong>Scouting Report:</strong> Lasko is already a Gold Glove-caliber outfielder. His ability to track balls in the gap is elite. His bat is catching up to his glove, making him a potential high-value "glue" player for the Vegas outfield.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>10. Mason Barnett (RHP) - The Mid-Rotation Workhorse</h2>
+<p><strong>Scouting Report:</strong> Barnett has a high floor. He throws strikes, eats innings, and has a competitive fire that scouts love. He may not be a superstar, but every winning team needs a guy like Barnett to take the ball every fifth day.
+<br><strong>ETA:</strong> 2026.</p>
+
+<h2>The Road to 2028</h2>
+<p>The 2028 roster in Las Vegas will likely feature a core built entirely from this list. By then, players like Zack Gelof and Lawrence Butler will be the "veteran" leaders, while Wilson and Morales enter their prime. The farm system is finally producing the volume of talent necessary to compete in the AL West without needing a $300 million payroll. The wait might be frustrating, but the talent is undeniable.</p>
+${affiliateBlock}
+`,
+  },
 export interface Post {
   slug: string;
   title: string;
@@ -21,6 +152,137 @@ const affiliateBlock = `
 `;
 
 const posts: Post[] = [
+
+  {
+    slug: "john-fisher-as-full-controversy-explained",
+    title: "John Fisher and the A's: The Full Controversy Explained",
+    description: "A definitive deep dive into the cheapskate ownership, the Oakland betrayal, and the path that led the Athletics to Las Vegas.",
+    date: "March 9, 2026",
+    category: "Editorial",
+    emoji: "🔥",
+    body: `
+<h2>The Most Despised Man in Baseball?</h2>
+<p>In the long history of Major League Baseball, there have been villains. There have been owners who lost money, owners who lost games, and owners who lost their minds. But John Fisher, the reclusive heir to the Gap clothing fortune, has achieved a singular status. He is the man who didn't just move a team—he methodically dismantled a community's soul to save a fraction of a billionaire's portfolio.</p>
+<p>To understand the current state of the Las Vegas Athletics, one must understand the scorched earth left behind in Oakland. This isn't just a story about a stadium; it’s a case study in corporate extraction, neglect, and the ultimate betrayal of a fan base that gave everything while receiving nothing but disrespect in return.</p>
+
+<h2>The Cheapskate Era: Slashing the Pulse of a Franchise</h2>
+<p>John Fisher took control of the Athletics in 2005. At the time, the A's were the "Moneyball" darlings—a team that competed against giants on a budget. But under Fisher, "Moneyball" stopped being a clever competitive advantage and started being a convenient excuse for austerity. While other mid-market teams eventually spent to win, Fisher's A's became a developmental laboratory for the rest of the league.</p>
+<p>The payroll slashing wasn't just about saving money; it was about stripping the team of its identity. Every time a star player captured the heart of Oakland, they were shipped out. Matt Chapman, Matt Olson, Chris Bassitt, Sean Manaea, Marcus Semien—the list of All-Stars sold for pennies on the dollar is an indictment of an owner who viewed players as depreciating assets rather than the heart of a franchise. By the time the team reached its final years in Oakland, the roster was a collection of Triple-A talent and placeholders, a deliberate attempt to suppress attendance and justify a relocation.</p>
+
+<h2>The Howard Terminal Saga: A Negotiated Deception</h2>
+<p>For years, the A's leadership, led by Fisher and his hatchet-man Dave Kaval, insisted their "Parallel Paths" (Oakland vs. Las Vegas) were genuine. They proposed a multi-billion dollar waterfront stadium at Howard Terminal in Oakland. The city, despite its financial challenges, stepped up. They secured hundreds of millions in infrastructure grants. They cleared environmental hurdles that usually take decades. They did the work.</p>
+<p>But whenever the finish line appeared, Fisher moved the goalposts. The project was never about the stadium; it was about the massive real estate development surrounding it. When the interest rates rose and the real estate market cooled, Fisher pivoted. The "Oakland is our home" banners were ripped down, replaced by a sudden, desperate craving for the Nevada desert.</p>
+
+<h2>Selling Out the Community: The Sacramento Stopover</h2>
+<p>Perhaps the most insulting chapter of the saga is the interim period. After refusing to negotiate a fair lease extension with the city of Oakland—a city that had hosted them for 56 years—Fisher decided to move the team to a minor league park in Sacramento. Sutter Health Park, a 14,000-seat Triple-A stadium, will host a Major League team for three years. It is a humiliation for the sport of baseball and a final middle finger to the fans in the East Bay.</p>
+
+<h2>The "Sell The Team" Movement</h2>
+<p>The response from the fans was nothing short of heroic. The "Reverse Boycott" of 2023 saw 27,000 fans pack the Coliseum, not to support Fisher, but to tell him—and the world—to "Sell The Team." Thousands wore green t-shirts with that simple, powerful demand. They stayed in the parking lot in protest. They flew planes over the stadium with banners. They showed that the fans weren't the problem—the leadership was.</p>
+<p>Fisher ignored them. He sat in his private box, sheltered from the anger of the people whose heritage he was auctioning off. The move to Las Vegas was approved by MLB owners, a group of billionaires protecting one of their own from the consequences of his own incompetence.</p>
+
+<h2>Public Funding and the Vegas Fight</h2>
+<p>Even in Las Vegas, the controversy follows. The $380 million in public funding granted by the Nevada Legislature was met with fierce opposition. "Schools Over Stadiums," a teacher-led movement, has fought the deal every step of the way, pointing out that Nevada ranks near the bottom in education while handing out welfare to a billionaire for a 9-acre ballpark footprint that many still believe is too small.</p>
+
+<h2>The Definitive Piece: Why It Matters</h2>
+<p>The Las Vegas A's will play in 2028. There will be lights, there will be a roof, and there will be tourists. But a franchise built on the foundation of betrayal carries a heavy burden. For the fans in Oakland, the "Sell The Team" chants will never truly stop. For the fans in Vegas, the question remains: if he did it to them, what's to stop him from doing it to you?</p>
+<p>This controversy isn't an "Oakland problem." It's a John Fisher problem. And until the ownership changes, the cloud over the Athletics will remain, no matter how bright the Vegas sun shines.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "las-vegas-as-2026-sacramento-schedule-guide",
+    title: "Las Vegas A's 2026 Sacramento Schedule: Every Game, Every Way to Watch",
+    description: "The complete guide to the 2026 season at Sutter Health Park. How to travel, where to stream, and the best ways to catch the A's in their interim home.",
+    date: "March 9, 2026",
+    category: "Game Day",
+    emoji: "📅",
+    body: `
+<h2>The Sacramento Era Continues</h2>
+<p>As construction continues on the Las Vegas Strip, the Athletics return to Sacramento for the second year of their three-year residency at Sutter Health Park. It remains one of the most unique settings in Major League history—a Triple-A ballpark acting as a temporary sanctuary for a franchise in flight. For fans in Las Vegas, following the team in 2026 requires a bit of planning, a subscription or two, and perhaps a weekend trip up North.</p>
+
+<h2>The 2026 Schedule Highlights</h2>
+<p>The 2026 season kicks off with a challenging stretch. Because Sutter Health Park is a smaller venue, the atmosphere is intimate—every game feels like a "big event." Key series to watch include the April visit from the New York Yankees and the late-summer showdown with the Houston Astros. The home schedule is packed with weekend series designed to attract traveling fans from both the Bay Area and Southern Nevada.</p>
+
+<h2>Sutter Health Park: The Fan Experience</h2>
+<p>Watching a game at Sutter Health Park is unlike any other MLB experience. With a capacity of just 14,000, you are remarkably close to the action. The "Home Run Terrace" in right field remains the most popular spot for social fans, offering a grass-berm experience that feels more like a picnic than a professional sports venue. However, be warned: Sacramento temperatures in July and August can easily rival Las Vegas, often exceeding 100 degrees. With limited shade, hydration and sunscreen are your primary equipment.</p>
+
+<h2>How to Watch: TV and Streaming</h2>
+<p>For fans staying in Las Vegas, catching the games requires navigating the regional sports network (RSN) landscape. Most games will be broadcast on the local carrier, but with the move, streaming has become the preferred method for the younger fan base. MLB.TV remains the gold standard, though local blackout rules in Las Vegas still apply unless you are using a provider that carries the local A's feed. For those cutting the cord, several digital platforms now offer "Single Team" packages that are more affordable than a full cable subscription.</p>
+
+<h2>Vegas to Sacramento: The Travel Guide</h2>
+<p>If you're planning to make the trip from the 702 to the 916, you have two main options:
+<ul>
+  <li><strong>Flying:</strong> Southwest Airlines offers multiple daily non-stops from Harry Reid (LAS) to Sacramento International (SMF). The flight is roughly 90 minutes. From SMF, it's a quick 15-minute rideshare to West Sacramento and the stadium area.</li>
+  <li><strong>Driving:</strong> It's a long haul—about 8 to 9 hours depending on traffic. You'll take US-95 North through the heart of Nevada, eventually cutting over to California. It's a beautiful, desolate drive, but not for the faint of heart.</li>
+</ul>
+</p>
+
+<h2>Tailgating at Sutter Health</h2>
+<p>The tailgating scene in West Sacramento is more relaxed than the old Coliseum parking lot. The lots surrounding the park are smaller, so the energy is concentrated. The "Barn" nearby has become the unofficial pre-game headquarters, offering local craft beers and an outdoor area that captures the Sacramento summer vibe perfectly. If you're looking for Vegas-style energy, you won't find it here—this is a community baseball vibe through and through.</p>
+
+<h2>Best Bars in Vegas to Catch the Game</h2>
+<p>If you aren't traveling, several Las Vegas sports bars have become the de facto "A's Hubs" for the 2026 season. Spots like <strong>The Front Yard at Ellis Island</strong> or <strong>Beerhaus at The Park</strong> consistently show the games with sound, providing a sense of community for the growing Vegas fan base. Look for "Athletics Watch Party" events scheduled for the Friday night games of major series.</p>
+
+<p>Whether you're in the stands at Sutter Health or on a barstool on the Strip, the 2026 season is a vital bridge to the future. Make sure your calendar is marked—baseball is a daily grind, even in transition.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "las-vegas-as-top-prospects-2026-watch-list",
+    title: "Every Las Vegas A's Prospect to Watch in 2026 and Beyond",
+    description: "The future is arriving. A deep dive into the top 10 prospects in the A's system and how they fit into the 2028 Las Vegas roster.",
+    date: "March 9, 2026",
+    category: "Roster Intel",
+    emoji: "⭐",
+    body: `
+<h2>The Foundation of the 2028 Vegas Roster</h2>
+<p>While the headlines are dominated by stadium renderings and ownership drama, the actual success of the Las Vegas Athletics will be determined in places like Lansing, Midland, and Las Vegas (Triple-A). The A's farm system has undergone a major infusion of talent over the last two years, shifting from a bottom-tier group to a top-10 system in baseball. These are the names you will be cheering for when the roof opens on the Strip in 2028.</p>
+
+<h2>1. Jacob Wilson (SS) - The Contact King</h2>
+<p><strong>Scouting Report:</strong> Wilson is perhaps the most unique prospect in baseball. His bat-to-ball skills are legendary; he simply does not strike out. In an era of high-velocity swing-and-miss, Wilson is a throwback. He has refined his defensive range at shortstop and looks like a Huntington-caliber defender.
+<br><strong>ETA:</strong> Mid-2026. Wilson is the centerpiece of the future infield.</p>
+
+<h2>2. Luis Morales (RHP) - The Cuban Flame-Thrower</h2>
+<p><strong>Scouting Report:</strong> Morales features an effortless 98-100 mph fastball and a slider that disappears. Since signing out of Cuba, his command has improved significantly. He has "Ace" potential and could be the Opening Day starter for the 2028 Vegas opener.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>3. Denzel Clarke (OF) - The Five-Tool Freak</h2>
+<p><strong>Scouting Report:</strong> Clarke has the highest ceiling in the system. Standing 6'5", he has light-tower power and elite speed. His strikeout rate was the only concern, but 2025 saw him make major adjustments to his swing plane. He is a highlight reel waiting to happen.
+<br><strong>ETA:</strong> Late 2026.</p>
+
+<h2>4. Steven Echavarria (RHP) - The Polished Projection</h2>
+<p><strong>Scouting Report:</strong> A high-school pick who has matured quickly. Echavarria has a four-pitch mix and poise that belies his age. He isn't just a thrower; he’s a pitcher. His "stuff" continues to tick up as he fills out his frame.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>5. Myles Naylor (3B) - The Next Generation</h2>
+<p><strong>Scouting Report:</strong> The youngest of the Naylor brothers, Myles has the most raw power of the bunch. He’s a natural third baseman with a cannon for an arm. If he can maintain his plate discipline, he is a perennial 30-home run threat in the making.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>6. Henry Bolte (OF) - Power and Speed</h2>
+<p><strong>Scouting Report:</strong> Like Clarke, Bolte is an elite athlete. He has a massive "power-speed" combo that translates well to the modern game. His 2025 season in High-A was a breakout, showing he can handle advanced velocity.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>7. Colby Thomas (OF) - The Sneaky Star</h2>
+<p><strong>Scouting Report:</strong> All Thomas does is hit. He’s been one of the most productive hitters in the minors since being drafted. He may not have the "tools" of a Clarke, but his "at-bat quality" is through the roof.
+<br><strong>ETA:</strong> 2026.</p>
+
+<h2>8. Daniel Susac (C) - The Anchor</h2>
+<p><strong>Scouting Report:</strong> A big, physical catcher who can handle a staff and provide pop from the right side. The A's have been patient with his development, focusing on his game-calling. He projects as a solid everyday Major League catcher.
+<br><strong>ETA:</strong> 2026.</p>
+
+<h2>9. Ryan Lasko (OF) - The Defensive Specialist</h2>
+<p><strong>Scouting Report:</strong> Lasko is already a Gold Glove-caliber outfielder. His ability to track balls in the gap is elite. His bat is catching up to his glove, making him a potential high-value "glue" player for the Vegas outfield.
+<br><strong>ETA:</strong> 2027.</p>
+
+<h2>10. Mason Barnett (RHP) - The Mid-Rotation Workhorse</h2>
+<p><strong>Scouting Report:</strong> Barnett has a high floor. He throws strikes, eats innings, and has a competitive fire that scouts love. He may not be a superstar, but every winning team needs a guy like Barnett to take the ball every fifth day.
+<br><strong>ETA:</strong> 2026.</p>
+
+<h2>The Road to 2028</h2>
+<p>The 2028 roster in Las Vegas will likely feature a core built entirely from this list. By then, players like Zack Gelof and Lawrence Butler will be the "veteran" leaders, while Wilson and Morales enter their prime. The farm system is finally producing the volume of talent necessary to compete in the AL West without needing a $300 million payroll. The wait might be frustrating, but the talent is undeniable.</p>
+${affiliateBlock}
+`,
+  },
   {
     slug: "las-vegas-athletics-stadium-update-2026",
     title: "Las Vegas Athletics Stadium Update 2026: What We Know About the New Ballpark",
