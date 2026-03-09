@@ -1,9 +1,7 @@
+"use client"
+
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'The LV Athletics -- Las Vegas A\'s Fan Hub',
-  description: 'Your home for Las Vegas Athletics news, stadium updates, and fan coverage. The A\'s are coming to Vegas in 2028.',
-}
 
 const COUNTDOWN_TARGET = new Date('2028-04-01T19:05:00-07:00').getTime()
 
