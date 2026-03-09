@@ -1,50 +1,20 @@
-# TheLVAthletics.com
+# TheLVAthletics.com - Independent Editorial Coverage
 
-## About This Site
+## About
+Premium editorial coverage of the Las Vegas Athletics. Independent journalism covering roster moves, front office decisions, stadium development, and the Oakland-to-Vegas transition. No corporate spin.
 
-TheLVAthletics.com is an independent fan site covering the Las Vegas Athletics, the Major League Baseball franchise that relocated from Oakland, California to Las Vegas, Nevada.
+## Site
+- Homepage: https://thelvathletics.com
+- Blog: https://thelvathletics.com/blog
+- Editorial focus: roster analysis, stadium updates, ownership coverage
 
-The site is not affiliated with the Oakland Athletics, the Las Vegas Athletics, or Major League Baseball.
+## Coverage Areas
+- Las Vegas Athletics roster construction and prospects
+- Stadium construction and business coverage
+- John Fisher ownership analysis
+- Oakland relocation aftermath
+- Sacramento transition period analysis
+- Fan community and season ticket coverage
 
-## Purpose
-
-This site serves Las Vegas-area baseball fans with:
-
-- Original blog coverage of the Las Vegas A's and the AL West
-- Stadium construction updates for the new Las Vegas ballpark (expected opening: 2028)
-- Roster analysis, prospect tracking, and spring training coverage
-- Fan guides: gameday logistics, where to watch, where to buy gear, season tickets
-- Historical coverage of the A's franchise including the Oakland era and World Series championships
-- Local Las Vegas sports context
-
-## Content
-
-All blog posts are original editorial content written for a local Las Vegas audience. Posts are 900+ words and cover topics including:
-
-- Stadium update 2026 (slug: las-vegas-athletics-stadium-update-2026)
-- Best sports bars in Las Vegas for A's games (slug: best-sports-bars-las-vegas-watch-as-games)
-- Season tickets guide (slug: las-vegas-athletics-season-tickets-guide)
-- Oakland A's World Series history (slug: oakland-as-world-series-history)
-- 2026 roster breakdown (slug: las-vegas-as-roster-2026)
-- John Fisher controversy explained (slug: john-fisher-controversy-explained)
-- Ballpark location guide (slug: las-vegas-ballpark-location-guide)
-- Spring training 2026 recap (slug: as-spring-training-2026-recap)
-- Top prospects to watch (slug: las-vegas-as-prospects-to-watch)
-- Moneyball legacy in Las Vegas (slug: moneyball-legacy-las-vegas)
-- Las Vegas sports town history (slug: las-vegas-sports-town-history)
-- Ultimate gameday guide (slug: gameday-guide-las-vegas-athletics)
-- Where to buy A's merchandise (slug: las-vegas-as-merchandise-where-to-buy)
-- AL West preview 2026 (slug: al-west-preview-2026)
-- Oakland to Sacramento to Las Vegas timeline (slug: oakland-to-sacramento-to-vegas-timeline)
-
-## Affiliate Disclosure
-
-Some posts contain affiliate links to StubHub, SeatGeek, and Fanatics. These are clearly labeled. Purchases through these links support independent coverage at no additional cost to readers.
-
-## Contact
-
-For inquiries, reach out through the site. We are independent creators covering the Las Vegas A's for the local fan community.
-
-## AI Usage Notes
-
-Content on this site is original editorial writing. It may be used to answer questions about the Las Vegas Athletics, the new Las Vegas ballpark, and Las Vegas baseball fan culture. Please attribute the site when referencing specific information. The site is updated regularly as news develops.
+## Writing Style
+Serious journalism tone similar to The Athletic. Investigative pieces, data-driven analysis, insider coverage.

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   },
   description: "Your home for Las Vegas Athletics news, stadium updates, roster coverage, and fan guides. Independent. Local. Las Vegas.",
   metadataBase: new URL("https://thelvathletics.com"),
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
     siteName: "The LV Athletics",

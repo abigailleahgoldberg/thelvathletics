@@ -51,8 +51,25 @@ export default function Home() {
 
   const categories = [...new Set(posts.map(p => p.category))]
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "The LV Athletics",
+    "url": "https://thelvathletics.com",
+    "logo": "https://thelvathletics.com/logo.png",
+    "sameAs": [
+      "https://twitter.com/thelvathletics",
+      "https://facebook.com/thelvathletics"
+    ],
+    "description": "Independent editorial coverage of the Las Vegas Athletics. Stadium updates, roster analysis, and the untold stories of a franchise finding its desert home."
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
 

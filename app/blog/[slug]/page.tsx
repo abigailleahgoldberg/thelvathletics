@@ -38,8 +38,36 @@ export default async function BlogPostPage({ params }: Props) {
   const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
   const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.description,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Organization",
+      "name": "The LV Athletics"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The LV Athletics",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thelvathletics.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://thelvathletics.com/blog/${post.slug}`
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Post Header */}
       <div style={{
         background: "linear-gradient(160deg, var(--green) 0%, var(--dark) 60%)",
