@@ -1,20 +1,5 @@
 import { BlogPost } from "./types";
 
-const affiliateBlock = `
-<div class="my-8 p-6 bg-green-900/20 border border-green-500/30 rounded-xl">
-  <h3 class="text-xl font-bold text-green-400 mb-2">Support Las Vegas Athletics Baseball</h3>
-  <p class="text-gray-300 mb-4">Get ready for the 2028 season with official Las Vegas A's gear. Your support helps us continue providing independent, investigative coverage of the team's move and future.</p>
-  <div class="flex flex-wrap gap-4">
-    <a href="https://amzn.to/3V9mP5n" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
-      Shop Official A's Gear
-    </a>
-    <a href="https://amzn.to/3V9mP5n" target="_blank" rel="noopener noreferrer" class="inline-block bg-transparent border border-green-500 text-green-400 hover:bg-green-500/10 font-bold py-2 px-6 rounded-lg transition-colors">
-      View Latest Deals
-    </a>
-  </div>
-  <p class="text-xs text-gray-500 mt-4 italic">*We may earn a commission from qualifying purchases through these links.</p>
-</div>
-`;
 
 export const blogPosts: BlogPost[] = [
   {
