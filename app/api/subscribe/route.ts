@@ -1,7 +1,4 @@
-import { NextResponse } from "next/server";
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+import { NextResponse } from 'next/server';
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -15,64 +12,29 @@ export async function OPTIONS() {
 
 export async function POST(req: Request) {
   try {
-    const { email, source } = await req.json();
-
-    if (!email || !email.includes("@")) {
-      return NextResponse.json({ error: "Valid email required" }, { status: 400 });
+    const { email } = await req.json();
+    if (!email || !email.includes('@')) {
+      return NextResponse.json({ error: 'invalid email' }, { status: 400 });
     }
-
-    // Write to Supabase lvas_subscribers table
-    const sbRes = await fetch(`${SUPABASE_URL}/rest/v1/lvas_subscribers`, {
-      method: "POST",
+    const res = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-        "Prefer": "return=minimal",
+        'api-key': process.env.BREVO_API_KEY || '',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
       },
       body: JSON.stringify({
-        email: email.toLowerCase().trim(),
-        source: source || "thelvathletics",
+        email,
+        listIds: [4],
+        updateEnabled: true,
+        attributes: { SOURCE: 'thelvathletics.com', SIGNED_UP: new Date().toISOString().split('T')[0] },
       }),
     });
-
-    // 409 = duplicate email, which is fine
-    if (!sbRes.ok && sbRes.status !== 409 && sbRes.status !== 201) {
-      // Fallback: write to VoC CRM prospects table
-      await fetch("https://www.thevoiceofcash.com/api/crm/prospect", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          business_name: "LVA Subscriber",
-          contact_name: email,
-          email: email.toLowerCase().trim(),
-          source: `${source || "thelvathletics"}_subscriber`,
-          assigned_to: "cash",
-          intake_context: { type: "mailing_list", source_site: source || "thelvathletics" },
-        }),
-      });
-    }
-
-    // Also send email notification
-    const brevoKey = process.env.BREVO_API_KEY;
-    if (brevoKey) {
-      await fetch("https://api.brevo.com/v3/smtp/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": brevoKey,
-        },
-        body: JSON.stringify({
-          sender: { name: "LV Athletics Fan Sites", email: "noreply@thevoiceofcash.com" },
-          to: [{ email: "cash@thevoiceofcash.com" }],
-          subject: `New subscriber: ${email} (${source || "thelvathletics"})`,
-          htmlContent: `<p>New mailing list signup from <strong>${source || "thelvathletics"}</strong>:</p><p>${email}</p>`,
-        }),
-      });
-    }
-
-    return NextResponse.json({ success: true }, { headers: CORS_HEADERS });
+    if (res.ok || res.status === 204) return NextResponse.json({ ok: true }, { headers: CORS_HEADERS });
+    const body = await res.json().catch(() => ({}));
+    if (body?.code === 'duplicate_parameter') return NextResponse.json({ ok: true }, { headers: CORS_HEADERS });
+    return NextResponse.json({ error: 'service_error' }, { status: 500, headers: CORS_HEADERS });
   } catch {
-    return NextResponse.json({ error: "Failed" }, { status: 500, headers: CORS_HEADERS });
+    return NextResponse.json({ error: 'server_error' }, { status: 500, headers: CORS_HEADERS });
   }
 }
