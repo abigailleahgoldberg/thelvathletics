@@ -669,6 +669,218 @@ ${affiliateBlock}
   },
 ];
 
+  {
+    slug: "as-2026-roster-breakdown-who-is-coming-to-vegas",
+    title: "The A's 2026 Roster Breakdown: Who's Coming to Vegas and What to Expect",
+    description: "A deep roster analysis of the Las Vegas Athletics heading into 2026: key players, emerging prospects, and what the core looks like ahead of the 2028 stadium opening.",
+    date: "March 15, 2026",
+    category: "Roster Intel",
+    emoji: "📋",
+    body: `
+<h2>Building the Vegas Roster</h2>
+<p>The Las Vegas Athletics enter 2026 in a recognizable position: a franchise in directed transition, with a young core developing toward what management hopes will be a competitive team by the time the Las Vegas Strip stadium opens in 2028. Evaluating this roster honestly requires separating the floor from the ceiling, the contracts from the futures, and the players who are here to contribute from the players who are here to develop.</p>
+
+<p>What follows is a position-by-position breakdown of who matters on this roster, what their roles are, and what reasonable expectations look like for the season ahead.</p>
+
+<h2>Starting Rotation: The Organization's Strongest Asset</h2>
+<p>JP Sears anchors the rotation and is the closest thing the A's have to a genuine top-of-the-rotation starter. His stuff is not overpowering -- he is not a triple-digit fastball guy -- but his command is advanced and his ability to generate weak contact through pitch sequencing is genuine. He enters 2026 coming off his best statistical season, and the projection systems are uniformly positive about continued development.</p>
+
+<p>Luis Medina is the most important wildcard in the organization. The raw stuff is legitimate ace-caliber: a mid-to-upper-90s fastball, a slider with swing-and-miss movement. The issue has always been command, and command development is notoriously nonlinear. The optimistic scenario has Medina building on the control improvements he showed in spring camp and becoming a genuine number-two starter. The pessimistic scenario is more of the same variance that has defined his career. Which version shows up will do more than any other single roster factor to determine whether this team contends for a wild card berth.</p>
+
+<p>Joey Estes, Hogan Harris, and Brady Basso fill out the back end of the rotation with different profiles but similar organizational roles: innings eaters who keep the team in games while not being asked to carry them. None of the three is a long-term rotation anchor. All three are valuable as components of a competitive five-man staff.</p>
+
+<h2>Bullpen: One Dominant Closer, Questions Behind Him</h2>
+<p>Mason Miller is the most important reliever in the American League when healthy. The issue -- and it is a real issue -- is the "when healthy" qualifier. Miller has dealt with arm issues across multiple seasons that have limited his availability. A closer who cannot pitch on consecutive nights creates real late-game problems, because modern bullpen management increasingly requires the back-end arm to be available in high-leverage situations across multiple appearances per week.</p>
+
+<p>The front office has managed this carefully, building a bullpen depth chart that does not depend on Miller being available every game. T.J. McFarland provides the left-handed matchup option. Lucas Erceg has closer-caliber stuff when he locates his secondary pitches. The back end will be supplemented by spring training performances and waiver wire additions as the season approaches.</p>
+
+<h2>Lineup: Rooker as the Anchor, Butler as the Future</h2>
+<p>Brent Rooker is the offensive centerpiece and enters a contract year with something to prove. He hit 30 home runs in 2024 and his power is genuine at the major league level. The plate discipline questions remain -- good pitchers attack him with breaking balls down and away, and the strikeout rate reflects that vulnerability -- but a 30-homer bat in the middle of a rebuilding team's lineup is valuable regardless of the contact quality concerns.</p>
+
+<p>Lawrence Butler in the outfield is the player the organization is genuinely excited about. His athleticism is plus, his arm is strong, and the bat-to-ball skills have been improving each year in the system. The ceiling projections for Butler involve a consistent 25-homer, .280 hitter who can play above-average defense in center. Getting from his current performance level to that ceiling is the 2026 assignment.</p>
+
+<p>Zack Gelof at second base brings real offensive promise alongside improving defense. His power-speed combination is legitimate. If Gelof takes the next step in plate discipline and starts punishing mistakes consistently, the lineup becomes genuinely dangerous rather than just threatening on paper.</p>
+
+<h2>Catching: The Position of Concern</h2>
+<p>Catching is the honest weakness on this roster. The options behind the plate are not the kind that make a pitching staff confident. Below-average framing, below-average bat. The catching market now values pitch framing at a premium, and a team that cannot provide it pays the price in runs allowed even when the ERA does not immediately reflect the deficit.</p>
+
+<p>The farm system has catching prospects developing, but none of them project to arrive in 2026 at a level that would change the situation. This is a problem the front office needs to address through trade or free agency before the team is genuinely competing.</p>
+
+<h2>The 2026 Outlook</h2>
+<p>A realistic range for the 2026 Las Vegas Athletics is 76 to 85 wins. The optimistic case -- healthy rotation, Miller available regularly, Butler and Gelof taking developmental steps -- puts the team in wild card range. The pessimistic case -- Medina reverts to his inconsistent baseline, Miller misses time, the offense underperforms its projections -- puts them closer to 76 wins and another year of building.</p>
+
+<p>Either way, the 2026 season is about development trajectory rather than outcomes. The players who show they belong in Las Vegas in 2026 are the players who will be there in 2028 when the Strip stadium opens and the real era begins.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "as-temporary-home-minor-league-park-sacramento",
+    title: "Temporary Home: What to Know About the A's Playing at the Minor League Park",
+    description: "The full story on the A's Sacramento residency at Sutter Health Park: why it happened, what the experience is like, and what it means for the franchise heading to Las Vegas.",
+    date: "March 15, 2026",
+    category: "Behind the Scenes",
+    emoji: "🏟️",
+    body: `
+<h2>A Major League Team in a Minor League Stadium</h2>
+<p>The Las Vegas Athletics are playing their 2026 home games at Sutter Health Park in West Sacramento, California. Sutter Health Park is home to the Sacramento River Cats, the Triple-A affiliate of the San Francisco Giants. Its capacity for baseball is approximately 14,000 fans. It has no retractable roof, limited shade for most of the seating bowl, and a concourse experience designed for a minor league budget and a minor league price point.</p>
+
+<p>This is where a Major League Baseball team is playing home games. It is one of the most unusual situations in the history of the sport, and understanding how it came about, what it actually looks like as an operational reality, and what it means for the franchise requires going deeper than the headline numbers.</p>
+
+<h2>How Did This Happen?</h2>
+<p>The Athletics' move from Oakland to Las Vegas required leaving their long-term home at the Oakland-Alameda County Coliseum before their new Las Vegas stadium was ready. The Coliseum lease expired and was not renewed. The Las Vegas stadium, approved in 2023 and under construction on the old Tropicana site, will not be ready until 2028. That gap -- 2025, 2026, and 2027 -- required an interim home.</p>
+
+<p>Sacramento was the chosen solution. The city is close enough to the Bay Area to maintain some connection with the existing fan base while being in the Northern California region where the franchise's history is rooted. The River Cats' parent organization, the Giants, had a shared-stadium arrangement that made Sutter Health Park available for A's use during the home stand schedule. It is a temporary arrangement that everyone involved acknowledges is temporary.</p>
+
+<h2>What the Fan Experience Actually Looks Like</h2>
+<p>Watching a Major League game at Sutter Health Park is genuinely different from watching one at a purpose-built MLB venue. The differences are not just numerical -- it is not simply that the stadium holds fewer people. The physical proximity to the players is remarkable. Seats that would be considered mid-priced at any major league stadium feel like field-level premium at Sutter Health Park. You can hear conversations in the dugout. You can see the pitcher's grip on the ball from a seat that costs a fraction of what comparable sight lines would cost at Dodger Stadium or Wrigley Field.</p>
+
+<p>The concourse experience is limited by minor league infrastructure. The food and beverage options are more modest than what fans expect from MLB venues. The stadium lacks the premium amenity spaces -- clubs, all-inclusive areas, rooftop decks -- that new major league parks built in the 2000s and 2010s have made standard. You are getting baseball without the entertainment infrastructure that modern ballpark design bundles around baseball.</p>
+
+<p>For some fans, this is a feature rather than a bug. The stripped-down experience puts the game itself at the center of the visit in a way that the palatial new stadiums sometimes do not. The players are close. The baseball is real. The $9 hot dog is still there. Everything else is optional.</p>
+
+<h2>The Attendance Numbers and What They Mean</h2>
+<p>Attendance at Sutter Health Park during the A's residency has been a complicated story. The stadium is small enough that the per-game numbers that look modest at an MLB venue fill the place to a reasonable percentage of capacity. Sold-out games at 14,000 feel like genuine events. Half-full games at 7,000 feel emptier than the same number at a 40,000-seat stadium.</p>
+
+<p>The organizational perspective on Sacramento attendance is carefully managed. The franchise cannot be seen as failing in its temporary home, because failing attendance in Sacramento would raise legitimate questions about what the Las Vegas market can actually support. The reality is that Sacramento represents neither the franchise's floor nor its ceiling. It is a placeholder, and the relevant attendance story will be told when the Strip stadium opens in 2028.</p>
+
+<h2>The Players and Their Sacramento Experience</h2>
+<p>From the players' perspective, Sacramento has been reported as a mixed experience. The intimacy of the smaller park creates an unusual connection with fans that does not exist at a 40,000-seat venue. Players have noted that the atmosphere at well-attended games has genuine energy in a way that a sparsely attended big stadium cannot replicate.</p>
+
+<p>The practical inconveniences are real. The clubhouse facilities are minor league standard. The training room and player development infrastructure are not what MLB players are accustomed to. The A's have invested in supplementary facilities and personnel to bridge the gap, but there is no pretending that Sutter Health Park provides the operational environment that purpose-built MLB stadiums do.</p>
+
+<h2>What Comes After Sacramento: The Las Vegas Future</h2>
+<p>The Sacramento chapter ends after the 2027 season, regardless of the construction status of the Las Vegas stadium. The target is 2028. The construction timeline supports 2028. The organization has committed to 2028. What the Las Vegas Strip stadium will represent, in contrast to Sutter Health Park, is the full realization of what this franchise is trying to build.</p>
+
+<p>Thirty-three thousand seats. A retractable roof. Natural grass. Club spaces that meet or exceed the standards of any other MLB venue. Food and beverage that reflects the Las Vegas market's elevated expectations. A location within walking distance of the most concentrated entertainment infrastructure on the planet.</p>
+
+<p>Sacramento is the sacrifice. Las Vegas is the prize. The players know it. The fans know it. The front office has been very clear about it. Endure the minor league park. The Strip stadium is coming.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "as-relocation-compared-every-mlb-team-move",
+    title: "How the A's Relocation Compares to Every Other MLB Team Move",
+    description: "Historical context on the A's move to Las Vegas: how it compares to the Dodgers leaving Brooklyn, the Expos becoming the Nationals, the Braves moving to the suburbs, and every other MLB relocation.",
+    date: "March 15, 2026",
+    category: "Historical Analysis",
+    emoji: "📚",
+    body: `
+<h2>Baseball Has Been Moving Teams Since 1903</h2>
+<p>The Oakland Athletics are not the first Major League Baseball franchise to change cities. They are not even the first franchise to change cities twice. The history of MLB relocation is a long, complicated, often painful record of economic forces, stadium politics, ownership decisions, and the collision between a sport's mythological attachment to place and the mundane financial realities of running a professional sports franchise. The A's move to Las Vegas sits in that history, and understanding where it fits requires knowing what came before it.</p>
+
+<h2>The Wholesale Moves of 1953 to 1958</h2>
+<p>The most concentrated period of franchise relocation in baseball history occurred in the late 1950s, when the geography of Major League Baseball was fundamentally redrawn. Before 1953, all sixteen MLB teams were concentrated in the northeastern and midwestern United States. Boston, New York, Philadelphia, Washington, Pittsburgh, Cleveland, Chicago, Cincinnati, Detroit, St. Louis. The west coast did not exist on baseball's map.</p>
+
+<p>The Boston Braves moved to Milwaukee in 1953, becoming the first franchise to relocate since 1903. The Philadelphia Athletics -- the same franchise now in Las Vegas -- moved to Kansas City in 1955, responding to competition from the Phillies and the deteriorating financial position of owner Connie Mack's family. The Brooklyn Dodgers moved to Los Angeles and the New York Giants moved to San Francisco in 1958, the most seismic pair of moves in the sport's history and still the most emotionally resonant franchise relocation story in American sports.</p>
+
+<p>The Brooklyn Dodgers comparison is the one that hangs most heavily over the Oakland situation. Brooklyn fans in 1958 felt the same betrayal that Oakland fans felt in 2023: a team that was woven into the identity of a community, owned by a man who prioritized profit over history, departing for a larger market with no genuine effort made to stay. Owner Walter O'Malley has been the villain in the Brooklyn story for more than sixty years. John Fisher will likely occupy a similar role in the Oakland story for a similar period.</p>
+
+<h2>The Kansas City and Milwaukee Chapters</h2>
+<p>The Kansas City Athletics, after arriving from Philadelphia in 1955, spent thirteen years in Missouri before moving to Oakland in 1968. During their Kansas City years, the franchise was widely acknowledged as a de facto farm team for the New York Yankees, regularly trading promising players to New York for cash and veterans. Charlie Finley bought the team in 1960 and eventually orchestrated the Oakland move, which proved to be the right decision for the franchise even if it created another set of abandoned fans.</p>
+
+<p>Milwaukee's Braves moved to Atlanta in 1966, just thirteen years after arriving from Boston. The pattern -- team arrives, wins early, attendance declines, ownership seeks better terms elsewhere -- repeated itself on a shorter timeline than it had in Brooklyn. Atlanta became a viable baseball market as the American South urbanized. Milwaukee eventually got another franchise, the expansion Brewers, in 1969.</p>
+
+<h2>The Expansion Era and the Washington Story</h2>
+<p>The 1960s expansion brought new franchises to new markets and also produced another relocation: the original Washington Senators moved to Dallas-Fort Worth in 1972 and became the Texas Rangers. Washington was immediately given a replacement team, the expansion Senators, which was itself a historical oddity -- a city losing its team and receiving an inferior replacement while the original franchise profited elsewhere.</p>
+
+<p>Washington did not get genuine major league baseball back until 2005, when the Montreal Expos relocated to become the Washington Nationals. The Expos' story is one of the most tragic in the sport: a franchise that was genuinely beloved in Montreal, capable of competing for championships in the early 1990s, systematically dismantled through shared ownership by MLB itself after private ownership collapsed, then moved out of Canada entirely. The Washington Nationals have been successful on the field, winning a World Series in 2019. The Montreal market has never recovered.</p>
+
+<h2>Where the A's Move Fits in This History</h2>
+<p>The Athletics' relocation to Las Vegas has several characteristics that make it distinct from most historical precedents. First, the Las Vegas destination is genuinely unprecedented -- no MLB franchise has previously been placed in a market this small by traditional broadcast metrics, this dependent on tourism, and this far from the franchise's historical footprint. Second, the Sacramento interim arrangement has no real historical parallel. Teams have played in temporary venues before, but a three-year residency in a Triple-A stadium while waiting for a Strip stadium to be built is genuinely new.</p>
+
+<p>The comparison that most analysts reach for is the Raiders' move from Oakland to Las Vegas in 2020, also approved by the league over the objections of a community that had supported the franchise for decades. That comparison is imperfect -- football and baseball have different relationships with their cities -- but the political and emotional dynamics are similar.</p>
+
+<h2>What History Suggests About the Las Vegas Future</h2>
+<p>The historical record on franchise relocations is clear on one point: new cities eventually build new fan bases. The Dodgers are beloved in Los Angeles in a way that is not diminished by what happened in Brooklyn. The Nationals have genuine Washington fans who have no connection to Montreal. The Athletics will have genuine Las Vegas fans who will be defined entirely by what happens on the Strip, not by anything that happened at the Oakland Coliseum.</p>
+
+<p>The Oakland fans who feel abandoned are expressing a legitimate grief, and that grief is real and permanent for many of them. But the Las Vegas chapter of Athletics history is beginning. The relocation is done. What comes next is the work of building something new.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "economics-of-as-vegas-deal-who-pays-who-profits",
+    title: "The Economics of the A's Vegas Deal: Who Pays, Who Profits, Who Wins",
+    description: "A hard look at the stadium financing, the $380 million public funding debate, economic impact projections, and what the Vegas deal actually means for taxpayers and the franchise.",
+    date: "March 15, 2026",
+    category: "Business",
+    emoji: "💰",
+    body: `
+<h2>Follow the Money</h2>
+<p>The Las Vegas Athletics stadium deal was approved by the Nevada Legislature with the support of a majority of elected officials and opposed vigorously by a coalition of educators, public finance critics, and citizens who believed the $380 million in public funding was a misallocation of state resources. Both sides made arguments rooted in real economic data, and both sides had legitimate points. Understanding the deal requires engaging with the numbers honestly rather than retreating to the ideological position that either all stadium subsidies are theft or all stadium investments are economic engines.</p>
+
+<h2>The Basic Structure of the Deal</h2>
+<p>The Nevada Legislature approved $380 million in public funding for the Las Vegas Athletics stadium in 2023. The total stadium cost is estimated at $1.5 billion, which means the public contribution represents approximately 25 percent of the total project cost. The Athletics and their private investors are responsible for the remaining $1.1 billion-plus.</p>
+
+<p>The public funding flows through the Clark County Stadium Authority, a public body that was established as part of the enabling legislation. The funding mechanism uses a variety of tax instruments including a room tax increment on hotel stays in the project area, which attempts to direct a portion of the funding burden toward the tourists who will be among the primary beneficiaries of the stadium's presence on the Strip.</p>
+
+<p>The stadium itself is technically a public asset in terms of the real property. The Athletics hold a long-term lease and operational control. This structure -- public ownership, private operation -- is the standard model for publicly financed sports facilities in the United States and has been since the stadium-building boom of the 1990s.</p>
+
+<h2>The "Schools Over Stadiums" Opposition</h2>
+<p>The most organized and morally coherent opposition to the stadium deal came from Nevada educators under the banner of the Schools Over Stadiums coalition. Their argument was direct: Nevada ranks near the bottom in per-pupil education spending, teacher retention, and student outcomes. Allocating $380 million to a facility that primarily benefits a private franchise and its billionaire owner, rather than to the education system that is failing Nevada students, represents a clear misallocation of public resources.</p>
+
+<p>This argument is hard to dismiss. Nevada's education challenges are real and documented. The counterfactual -- would the $380 million have gone to education if it had not gone to the stadium? -- is genuinely uncertain, but the opportunity cost framing is legitimate. Public money has alternative uses, and the stadium opponents are correct that those alternatives exist and that many of them have stronger claims on public investment than a sports facility.</p>
+
+<h2>The Economic Impact Argument</h2>
+<p>Stadium proponents made the standard economic impact arguments: construction jobs, permanent employment at the facility, tourism spending generated by visitors who come specifically for A's games, the multiplier effect of that spending through the local economy. The consultants hired by the Athletics projected significant positive economic impacts over the stadium's first decade of operation.</p>
+
+<p>Independent economists are consistently skeptical of stadium-specific economic impact studies, for several reasons. First, the methodology of hired consultants has a documented tendency to overcount benefits and undercount costs. Second, stadium spending often substitutes for other entertainment spending rather than representing net new economic activity -- fans who spend money at the ballpark are frequently fans who would have spent similar amounts at other Las Vegas entertainment venues if the ballpark did not exist. Third, the jobs created by sports stadiums tend to be seasonal, part-time, and low-wage rather than the kind of permanent middle-class employment that maximizes economic impact.</p>
+
+<h2>What the Strip Location Changes</h2>
+<p>The standard economic critique of stadium subsidies applies most powerfully to suburban stadiums surrounded by surface parking lots, where the facility captures economic activity from a contained footprint and limits the spillover into surrounding neighborhoods. The Las Vegas Strip location genuinely changes some of these dynamics.</p>
+
+<p>A stadium at the corner of Las Vegas Boulevard and Tropicana Avenue is embedded in the most economically dense entertainment district in the country. Fans who attend games cannot help but spend money in the surrounding corridor -- before games, after games, during the rest of their Las Vegas visit. The concentration of hotels, restaurants, entertainment venues, and retail within walking distance of the stadium means that the economic activity associated with Athletics games spreads through a system that was already generating enormous economic output.</p>
+
+<p>This is genuinely different from building a stadium in a greenfield suburban location. The Strip location maximizes whatever positive economic spillover stadium development can generate, even if it does not resolve the fundamental questions about whether the public subsidy was justified.</p>
+
+<h2>Who Wins</h2>
+<p>The honest answer is that this depends on what actually happens over the next two decades. The scenario in which the Las Vegas Athletics become a successful franchise with strong attendance, national television interest, and a genuine fan base generates real economic activity and returns real value to the public investment. The scenario in which attendance disappoints, the franchise struggles on the field, and the tourist-fan pipeline fails to materialize leaves the public with a $380 million contribution to a facility that primarily serves the interests of its private operator.</p>
+
+<p>The historical track record of publicly financed stadiums in terms of generating the economic returns that proponents promise is not strong. The Las Vegas location is genuinely different in ways that could change that track record. What actually happens will be determined over years of games, wins, losses, and the slow building of a fan community in a city that has never had major league baseball before.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "building-a-fanbase-from-scratch-as-las-vegas-plan",
+    title: "Building a Fanbase From Scratch: How the A's Plan to Win Over Las Vegas",
+    description: "Marketing strategy, community outreach, ticket plans, competing for attention against the Raiders and Knights -- how the Athletics are building a fan base in a city that has never had baseball.",
+    date: "March 15, 2026",
+    category: "Business",
+    emoji: "🎯",
+    body: `
+<h2>There Is No Inherited Fan Base</h2>
+<p>When the Golden Knights began their inaugural season, they had no existing Las Vegas hockey fans to draw on. They had to build a fan base from scratch, in a market with no hockey tradition, using the novelty of professional sports in Las Vegas as their primary asset. They succeeded by winning immediately, by connecting with the community through the tragedy of October 1st, and by creating an identity that felt specifically Las Vegas rather than a transplant from somewhere else.</p>
+
+<p>The Athletics face a similar challenge with an additional complication: they are not an expansion team with a clean slate. They are a relocated franchise with a complicated history, an owner who has become a symbol of bad-faith negotiation to a significant segment of baseball's fan base, and a relocation story that has generated more negative national attention than any franchise move since the Brooklyn Dodgers left for Los Angeles. Building a Las Vegas fan base means building it despite all of that, not because of it.</p>
+
+<h2>The Marketing Strategy: Las Vegas First</h2>
+<p>The organizational approach to fan base development in Las Vegas has centered on positioning the Athletics as a Las Vegas institution rather than an Oakland franchise that happened to move. The branding efforts have emphasized the Las Vegas identity -- the green and gold of the desert, the Strip location, the convergence of sports and entertainment that no other baseball market can offer.</p>
+
+<p>This is the right instinct, even if execution is still in early stages. Las Vegas fans who never had any connection to Oakland are the most important growth market. Trying to inherit Oakland's fan base is both impossible and counterproductive -- Oakland fans largely want nothing to do with the franchise under its current ownership. The new fans are going to come from Las Vegas residents, from tourists who encounter the team for the first time during a Strip visit, and from baseball fans in markets without MLB teams who adopt the Athletics as their team because of the Las Vegas entertainment proposition.</p>
+
+<h2>Community Outreach: Playing the Long Game</h2>
+<p>The Athletics have invested in community programming in the Las Vegas valley since the relocation announcement. Youth baseball initiatives, school partnerships, stadium tour programs at Allegiant and other venues -- the kinds of grassroots engagement that are standard for franchise-building in new markets. The goal is to create an emotional connection with the community before the first pitch is thrown in Las Vegas, so that the stadium's opening in 2028 feels like a culmination rather than an introduction.</p>
+
+<p>The Henderson and North Las Vegas markets are where the most important community work is happening. These are the residential communities where the families who will become multi-generational A's fans live. A ten-year-old in Henderson who gets invited to a batting clinic run by an A's prospect in 2025 is a potential lifetime season ticket holder in 2035. These investments do not show up in the financial projections but they are the actual mechanism through which sports franchises build lasting fan bases.</p>
+
+<h2>Ticket Strategy: Competing for the Entertainment Dollar</h2>
+<p>Las Vegas residents have more entertainment options per capita than residents of virtually any other American city. A summer Friday night in Las Vegas competes for attention with a concert at the T-Mobile Arena, a show at one of a hundred venues, a dinner at any of thousands of restaurants, a poker session at one of fifty-plus casinos, and a dozen other A's games on the schedule that week. The challenge of selling tickets in Las Vegas is not convincing people that baseball is worth attending -- it is convincing them that baseball is worth attending more than everything else competing for their leisure time and disposable income.</p>
+
+<p>The ticket strategy being developed for the Las Vegas market reflects this reality. Flexible plans that allow fans to pick specific games rather than committing to a full season. Theme nights and promotional events tied to the entertainment culture Las Vegas already understands. Premium experiences that compete on Las Vegas terms -- bottle service, VIP amenities, the kind of upscale presentation that the city's entertainment infrastructure has established as the baseline expectation for a night out.</p>
+
+<h2>The Tourist Revenue Stream</h2>
+<p>One aspect of the Las Vegas fan base that has no parallel in any other baseball market is the tourist component. The Strip location means that a certain percentage of every A's home game attendance will come from visitors who happen to be in Las Vegas and decide that a baseball game is a good way to spend a Tuesday evening. This is a revenue stream that does not require any community investment or loyalty development -- it is generated purely by the stadium's location in the most visited entertainment destination in North America.</p>
+
+<p>The team has been deliberate about marketing to this audience. Partnerships with hotel concierge programs, advertising through casino resort channels, ticket packages bundled with hotel stays. The goal is to make the A's game the automatic entertainment choice for certain categories of Las Vegas visitors the way the Bellagio fountains or the High Roller are -- something you just do when you are in Las Vegas.</p>
+
+<h2>What Success Looks Like in 2028</h2>
+<p>The metric for a successful fan base launch in Las Vegas is not whether the Athletics can sell out every game in their first season. The metric is whether the fan base that exists in year one is measurably larger and more committed than in year two, and year three, and whether the organic growth of local fandom is supplementing rather than depending on the tourist base. A franchise that draws 28,000 per game in 2028 but is growing toward sellouts by 2031 is succeeding. A franchise that draws 22,000 in 2028 and is trending downward by 2031 is failing.</p>
+
+<p>Everything the organization is doing right now -- the community outreach, the brand work, the ticket strategy, the stadium design -- is aimed at being in the first scenario rather than the second. Whether it works will depend on the product on the field, the ownership philosophy, and the sustained commitment to being a genuine Las Vegas institution rather than just a business operating in Las Vegas. The Golden Knights showed it can be done. Now it is the Athletics' turn.</p>
+${affiliateBlock}
+`,
+  },
+];
+
 export function getAllPosts(): Post[] {
   return posts;
 }

@@ -18,6 +18,11 @@ const blogSlugs = [
   "las-vegas-as-merchandise-where-to-buy",
   "al-west-preview-2026",
   "oakland-to-sacramento-to-vegas-timeline",
+  "as-2026-roster-breakdown-who-is-coming-to-vegas",
+  "as-temporary-home-minor-league-park-sacramento",
+  "as-relocation-compared-every-mlb-team-move",
+  "economics-of-as-vegas-deal-who-pays-who-profits",
+  "building-a-fanbase-from-scratch-as-las-vegas-plan",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
