@@ -18,6 +18,15 @@ const affiliateBlock = `
     <a href="https://www.fanatics.com/mlb/oakland-athletics/o-2793+t-53395338?aff=lvathletics-20" target="_blank" rel="noopener" style="display:inline-block;padding:10px 20px;background:#003831;color:#FAFAF8;font-family:Arial,sans-serif;font-weight:bold;font-size:0.85rem;border-radius:4px;text-decoration:none;border:1px solid #EFB21E;">Shop Gear on Fanatics</a>
   </div>
 </div>
+
+<div style="background:#0A1A0F;border:1px solid rgba(239,178,30,0.2);border-radius:8px;padding:24px;margin-top:20px;">
+  <div style="font-family:Arial,sans-serif;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:#EFB21E;margin-bottom:14px;">More From The A&apos;s Network</div>
+  <p style="font-size:0.85rem;color:rgba(250,250,248,0.7);margin-bottom:14px;">For more A&apos;s coverage across the network:</p>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <a href="https://thelvas.com" style="font-size:0.9rem;color:#EFB21E;text-decoration:none;font-family:Arial,sans-serif;"><strong>TheLVAs.com</strong> — Hot takes, fan culture, and bold predictions on Las Vegas Athletics baseball</a>
+    <a href="https://lvathleticsnation.com" style="font-size:0.9rem;color:#EFB21E;text-decoration:none;font-family:Arial,sans-serif;"><strong>LVAthleticsNation.com</strong> — The fan community: tailgate guides, bar scene, and building something new in the desert</a>
+  </div>
+</div>
 `;
 
 const posts: Post[] = [
