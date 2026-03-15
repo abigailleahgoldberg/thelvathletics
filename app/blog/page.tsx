@@ -57,14 +57,8 @@ export default function BlogPage() {
                 width: "100%",
                 height: "150px",
                 background: "linear-gradient(135deg, var(--green) 0%, #001a15 100%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "2.8rem",
                 flexShrink: 0,
-              }}>
-                {post.emoji}
-              </div>
+              }} />
               <div style={{ padding: "22px", display: "flex", flexDirection: "column", flex: 1 }}>
                 <div style={{
                   fontFamily: "Arial, sans-serif",

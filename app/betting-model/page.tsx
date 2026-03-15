@@ -34,9 +34,9 @@ export default function BettingModel() {
               By exploiting small inefficiencies in MLB player props, we maintain a consistent edge.
             </p>
             <ul style={{ paddingLeft: "1.2rem", color: "var(--gold)", fontWeight: "bold", listStyle: "none" }}>
-              <li style={{ marginBottom: "10px" }}>✅ Park Factor Adjustments</li>
-              <li style={{ marginBottom: "10px" }}>✅ Pitcher Home/Road Splits</li>
-              <li style={{ marginBottom: "10px" }}>✅ Lefty/Righty Platoon Exploitation</li>
+              <li style={{ marginBottom: "10px", display: "flex", alignItems: "center", gap: "8px" }}><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg> Park Factor Adjustments</li>
+              <li style={{ marginBottom: "10px", display: "flex", alignItems: "center", gap: "8px" }}><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg> Pitcher Home/Road Splits</li>
+              <li style={{ marginBottom: "10px", display: "flex", alignItems: "center", gap: "8px" }}><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg> Lefty/Righty Platoon Exploitation</li>
             </ul>
           </div>
 
