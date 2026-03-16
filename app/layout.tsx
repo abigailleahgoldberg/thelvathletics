@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Your home for Las Vegas Athletics news, stadium updates, roster coverage, and fan guides. Independent. Local. Las Vegas.",
   metadataBase: new URL("https://thelvathletics.com"),
   alternates: {
-    canonical: "./",
+    canonical: "https://thelvathletics.com",
   },
   openGraph: {
     type: "website",
@@ -29,6 +29,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "The LV Athletics",
+          "url": "https://thelvathletics.com",
+          "description": "Las Vegas Athletics fan hub. News, stadium updates, roster coverage, and fan guides."
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "The LV Athletics",
+          "url": "https://thelvathletics.com"
+        }) }} />
+      </head>
       <body>
         {children}
       </body>
