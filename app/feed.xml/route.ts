@@ -1,16 +1,17 @@
 import { NextResponse } from 'next/server';
-import { posts } from '../blog/data';
+import { getAllPosts } from '../blog/data';
 
 export async function GET() {
   const siteUrl = 'https://thelvathletics.com';
   const siteName = 'The LV Athletics';
   const siteDescription = 'Las Vegas sports coverage, athlete spotlights, and local athletics news.';
 
+  const posts = getAllPosts();
   const items = posts.map((post) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
       <link>${siteUrl}/blog/${post.slug}</link>
-      <description><![CDATA[${post.excerpt}]]></description>
+      <description><![CDATA[${post.description}]]></description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <guid>${siteUrl}/blog/${post.slug}</guid>
     </item>`).join('');
