@@ -1,0 +1,10 @@
+{
+  "name": "The LV Athletics",
+  "short_name": "LVA",
+  "description": "Las Vegas sports coverage, athlete spotlights, and local athletics news.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B4332",
+  "theme_color": "#1B4332",
+  "icons": [{ "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }]
+}
