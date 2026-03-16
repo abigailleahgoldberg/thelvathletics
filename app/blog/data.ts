@@ -676,7 +676,6 @@ ${affiliateBlock}
 ${affiliateBlock}
 `,
   },
-];
 
   {
     slug: "as-2026-roster-breakdown-who-is-coming-to-vegas",
