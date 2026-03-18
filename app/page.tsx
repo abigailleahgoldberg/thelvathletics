@@ -217,7 +217,7 @@ export default function Home() {
           <Link href="/blog" className="nav-link">All Stories</Link>
           <Link href="/blog/las-vegas-athletics-stadium-update-2026" className="nav-link">Stadium Watch</Link>
           <Link href="/blog/oakland-to-sacramento-to-vegas-timeline" className="nav-link">The Journey</Link>
-          <a href="https://www.ticketsonsale.com/sports/athletics" target="_blank" rel="noopener" className="nav-link" style={{ color: '#C8AA76' }}>🎟️ Tickets</a>
+          <a href="https://www.ticketsonsale.com/sports/athletics" target="_blank" rel="noopener" className="nav-link" style={{ color: '#C8AA76' }}>Tickets</a>
         </div>
 
         <button className="mobile-toggle" onClick={() => setMobileNav(!mobileNav)} style={{
@@ -447,16 +447,16 @@ export default function Home() {
               <div style={{ overflow: 'hidden', flex: 1 }}>
                 <div style={{ display: 'flex', animation: 'ticker 35s linear infinite', width: 'max-content' }}>
                   {[
-                    '⚾ Las Vegas Ballpark construction on schedule for 2028 Opening Day',
-                    '🏟️ New stadium site: Tropicana Avenue corridor confirmed',
+                    'Las Vegas Ballpark construction on schedule for 2028 Opening Day',
+                    'New stadium site: Tropicana Avenue corridor confirmed',
                     '🎰 First MLB franchise in Nevada history — the desert gets its team',
-                    '📍 1000+ days until first pitch in Las Vegas',
+                    '1000+ days until first pitch in Las Vegas',
                     '🏆 A\'s roster building for desert era — watch the moves',
                     '🌵 Vegas faithful: season tickets now available',
-                    '⚾ Las Vegas Ballpark construction on schedule for 2028 Opening Day',
-                    '🏟️ New stadium site: Tropicana Avenue corridor confirmed',
+                    'Las Vegas Ballpark construction on schedule for 2028 Opening Day',
+                    'New stadium site: Tropicana Avenue corridor confirmed',
                     '🎰 First MLB franchise in Nevada history — the desert gets its team',
-                    '📍 1000+ days until first pitch in Las Vegas',
+                    '1000+ days until first pitch in Las Vegas',
                     '🏆 A\'s roster building for desert era — watch the moves',
                     '🌵 Vegas faithful: season tickets now available',
                   ].map((item, i) => (
@@ -938,7 +938,7 @@ export default function Home() {
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="https://www.ticketsonsale.com/sports/athletics/?PCID=lvathletics-20" target="_blank" rel="noopener" className="cta-btn" style={{ background: '#C8AA76', color: '#003831', borderColor: '#C8AA76' }}>
-              🎟️ StubHub Tickets
+              StubHub Tickets
             </a>
             <a href="https://www.seatgeek.com/athletics-tickets?aid=lvathletics-20" target="_blank" rel="noopener" className="cta-btn">
               🎫 SeatGeek
@@ -1033,7 +1033,7 @@ export default function Home() {
               textTransform: 'uppercase',
               cursor: 'pointer',
               fontWeight: 500,
-            }}>{subscribed ? '✅ You\'re In!' : subscribing ? '...' : 'Subscribe'}</button>
+            }}>{subscribed ? 'You\'re In!' : subscribing ? '...' : 'Subscribe'}</button>
           </form>
         </div>
       </section>
