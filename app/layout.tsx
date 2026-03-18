@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { NetworkBar } from '@/components/NetworkBar';
 
 export const metadata: Metadata = {
   title: {
@@ -46,7 +47,8 @@ export default function RootLayout({
         }) }} />
       </head>
       <body>
-        {children}
+        <NetworkBar />
+        <div style={{ paddingTop: '28px' }}>{children}</div>
       </body>
     </html>
   );
