@@ -83,6 +83,8 @@ export default function Home() {
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(200,170,118,0.6); } 50% { box-shadow: 0 0 0 14px rgba(200,170,118,0); } }
         @keyframes float-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.4); } }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         @keyframes grain { 0%, 100% { transform: translate(0, 0); } 10% { transform: translate(-5%, -10%); } 20% { transform: translate(-15%, 5%); } 30% { transform: translate(7%, -25%); } 40% { transform: translate(-5%, 25%); } 50% { transform: translate(-15%, 10%); } 60% { transform: translate(15%, 0%); } 70% { transform: translate(0%, 15%); } 80% { transform: translate(3%, 35%); } 90% { transform: translate(-10%, 10%); } }
         @keyframes glow { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; } }
         @keyframes line-draw { from { width: 0; } to { width: 100%; } }
@@ -262,12 +264,62 @@ export default function Home() {
         position: 'relative',
         overflow: 'hidden',
       }}>
+        {/* Stars background */}
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+          {[...Array(60)].map((_, i) => (
+            <div key={i} style={{
+              position: 'absolute',
+              width: i % 7 === 0 ? '2px' : '1px',
+              height: i % 7 === 0 ? '2px' : '1px',
+              background: 'rgba(200,170,118,0.6)',
+              borderRadius: '50%',
+              left: `${(i * 17.3) % 100}%`,
+              top: `${(i * 13.7) % 65}%`,
+              animation: `twinkle ${2 + (i % 3)}s ease-in-out infinite`,
+              animationDelay: `${(i * 0.3) % 3}s`,
+            }} />
+          ))}
+        </div>
+
+        {/* Las Vegas Strip silhouette */}
+        <svg aria-hidden="true" style={{ position: 'absolute', bottom: '118px', left: 0, right: 0, width: '100%', height: '160px', zIndex: 1, opacity: 0.12 }} viewBox="0 0 1440 160" preserveAspectRatio="none">
+          {/* Strip buildings */}
+          <rect x="0" y="60" width="40" height="100" fill="#C8AA76"/>
+          <rect x="45" y="40" width="30" height="120" fill="#C8AA76"/>
+          <rect x="80" y="20" width="50" height="140" fill="#C8AA76"/>
+          <rect x="135" y="50" width="35" height="110" fill="#C8AA76"/>
+          <rect x="175" y="30" width="55" height="130" fill="#C8AA76"/>
+          <rect x="235" y="10" width="40" height="150" fill="#C8AA76"/>
+          <rect x="280" y="45" width="30" height="115" fill="#C8AA76"/>
+          <rect x="315" y="25" width="60" height="135" fill="#C8AA76"/>
+          <rect x="380" y="55" width="35" height="105" fill="#C8AA76"/>
+          <rect x="420" y="35" width="45" height="125" fill="#C8AA76"/>
+          {/* Allegiant Stadium shape */}
+          <ellipse cx="600" cy="130" rx="120" ry="35" fill="#003831" opacity="0.8"/>
+          <rect x="510" y="85" width="180" height="50" rx="8" fill="#003831" opacity="0.8"/>
+          <rect x="530" y="70" width="140" height="20" rx="4" fill="#004D40" opacity="0.6"/>
+          {/* Continue Strip */}
+          <rect x="780" y="40" width="50" height="120" fill="#C8AA76"/>
+          <rect x="835" y="15" width="35" height="145" fill="#C8AA76"/>
+          <rect x="875" y="50" width="65" height="110" fill="#C8AA76"/>
+          <rect x="945" y="30" width="40" height="130" fill="#C8AA76"/>
+          <rect x="990" y="20" width="55" height="140" fill="#C8AA76"/>
+          <rect x="1050" y="45" width="30" height="115" fill="#C8AA76"/>
+          <rect x="1085" y="35" width="50" height="125" fill="#C8AA76"/>
+          <rect x="1140" y="55" width="40" height="105" fill="#C8AA76"/>
+          <rect x="1185" y="25" width="60" height="135" fill="#C8AA76"/>
+          <rect x="1250" y="40" width="35" height="120" fill="#C8AA76"/>
+          <rect x="1290" y="15" width="50" height="145" fill="#C8AA76"/>
+          <rect x="1345" y="50" width="45" height="110" fill="#C8AA76"/>
+          <rect x="1395" y="30" width="45" height="130" fill="#C8AA76"/>
+        </svg>
+
         {/* Giant ghost A */}
         <div aria-hidden="true" style={{
           position: 'absolute',
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: 'min(85vw, 900px)',
-          color: 'rgba(200,170,118,0.025)',
+          color: 'rgba(200,170,118,0.018)',
           top: '50%',
           right: '-10%',
           transform: 'translateY(-50%)',
@@ -376,13 +428,76 @@ export default function Home() {
             Independent editorial coverage of the Las Vegas Athletics. Stadium updates, roster analysis, and the untold stories of a franchise finding its desert home.
           </p>
 
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '6rem', animation: 'float-in 0.6s ease-out 0.4s both' }}>
-            <Link href="/blog" className="cta-btn" style={{ background: '#C8AA76', color: '#060907' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem', animation: 'float-in 0.6s ease-out 0.4s both' }}>
+            <Link href="/blog" className="cta-btn" style={{ background: '#C8AA76', color: '#060907', fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.1rem', letterSpacing: '0.08em', padding: '0.9rem 2rem' }}>
               Read Coverage →
             </Link>
-            <a href="https://www.ticketsonsale.com/sports/athletics" target="_blank" rel="noopener" className="cta-btn">
-              🎟️ Find Tickets
+            <a href="https://www.ticketsonsale.com/sports/athletics" target="_blank" rel="noopener" className="cta-btn" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', border: '1px solid rgba(200,170,118,0.4)', fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.1rem', letterSpacing: '0.08em', padding: '0.9rem 2rem' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8AA76" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+              Get Tickets
             </a>
+          </div>
+
+          {/* NEWS TICKER */}
+          <div style={{ marginBottom: '5rem', animation: 'float-in 0.6s ease-out 0.5s both' }}>
+            <div style={{ display: 'flex', alignItems: 'stretch', overflow: 'hidden', border: '1px solid rgba(200,170,118,0.15)', background: 'rgba(0,0,0,0.4)' }}>
+              <div style={{ background: '#003831', padding: '0.6rem 1rem', fontFamily: "'DM Mono', monospace", fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C8AA76', whiteSpace: 'nowrap', flexShrink: 0, display: 'flex', alignItems: 'center', borderRight: '1px solid rgba(200,170,118,0.15)' }}>
+                LATEST
+              </div>
+              <div style={{ overflow: 'hidden', flex: 1 }}>
+                <div style={{ display: 'flex', animation: 'ticker 35s linear infinite', width: 'max-content' }}>
+                  {[
+                    '⚾ Las Vegas Ballpark construction on schedule for 2028 Opening Day',
+                    '🏟️ New stadium site: Tropicana Avenue corridor confirmed',
+                    '🎰 First MLB franchise in Nevada history — the desert gets its team',
+                    '📍 1000+ days until first pitch in Las Vegas',
+                    '🏆 A\'s roster building for desert era — watch the moves',
+                    '🌵 Vegas faithful: season tickets now available',
+                    '⚾ Las Vegas Ballpark construction on schedule for 2028 Opening Day',
+                    '🏟️ New stadium site: Tropicana Avenue corridor confirmed',
+                    '🎰 First MLB franchise in Nevada history — the desert gets its team',
+                    '📍 1000+ days until first pitch in Las Vegas',
+                    '🏆 A\'s roster building for desert era — watch the moves',
+                    '🌵 Vegas faithful: season tickets now available',
+                  ].map((item, i) => (
+                    <span key={i} style={{ padding: '0.6rem 2rem', fontFamily: "'DM Mono', monospace", fontSize: '0.62rem', letterSpacing: '0.08em', color: 'rgba(245,240,232,0.65)', whiteSpace: 'nowrap', borderRight: '1px solid rgba(200,170,118,0.08)' }}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ STADIUM STATUS BAR ============ */}
+      <section style={{ background: '#003831', borderTop: '1px solid rgba(200,170,118,0.2)', borderBottom: '1px solid rgba(200,170,118,0.2)', padding: '2rem 3rem' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(200,170,118,0.6)', marginBottom: '0.4rem', textTransform: 'uppercase' }}>Stadium Status</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.4rem', color: '#C8AA76', letterSpacing: '0.05em' }}>Under Construction</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(200,170,118,0.6)', marginBottom: '0.4rem', textTransform: 'uppercase' }}>Location</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.4rem', color: '#F5F0E8', letterSpacing: '0.05em' }}>Tropicana Ave, Las Vegas</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(200,170,118,0.6)', marginBottom: '0.4rem', textTransform: 'uppercase' }}>Capacity</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.4rem', color: '#F5F0E8', letterSpacing: '0.05em' }}>30,000 Seats</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(200,170,118,0.6)', marginBottom: '0.75rem', textTransform: 'uppercase' }}>Build Progress</div>
+              <div style={{ background: 'rgba(0,0,0,0.4)', borderRadius: '2px', height: '6px', overflow: 'hidden' }}>
+                <div style={{ width: '38%', height: '100%', background: 'linear-gradient(90deg, #C8AA76, #FFD700)', borderRadius: '2px' }} />
+              </div>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.55rem', color: 'rgba(200,170,118,0.6)', marginTop: '0.3rem' }}>Est. 38% complete</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(200,170,118,0.6)', marginBottom: '0.4rem', textTransform: 'uppercase' }}>Target Opening</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.4rem', color: '#4ADE80', letterSpacing: '0.05em' }}>April 2028</div>
+            </div>
           </div>
         </div>
       </section>
