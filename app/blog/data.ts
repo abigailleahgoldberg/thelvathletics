@@ -31,6 +31,102 @@ const affiliateBlock = `
 
 const posts: Post[] = [
   {
+    slug: "las-vegas-athletics-2026-opening-day-preview",
+    title: "Las Vegas Athletics 2026: What to Watch for Opening Day and Beyond",
+    description: "Opening Day 2026 is here. A real breakdown of the key players to watch, the storylines that will define this season, and what success actually looks like in Year 1 of the Las Vegas era.",
+    date: "March 23, 2026",
+    category: "Analysis",
+    emoji: "⚾",
+    body: `
+<h2>Year One. For Real This Time.</h2>
+<p>The Sacramento years were the bridge. Opening Day 2026 is the first real chapter of the Las Vegas Athletics era — not the arrival, not the announcement, but the actual season. Eighty-one home games at Sutter Health Park while the Strip stadium rises, yes. But this roster, this staff, this front office — they're being evaluated now. By the time the new ballpark opens in 2028, the question won't be "can Las Vegas support baseball?" It'll be "what did they build while nobody was watching?"</p>
+
+<p>This is what to watch for when that first pitch gets thrown.</p>
+
+<h2>The Player to Watch: Lawrence Butler, Center Field</h2>
+<p>Brent Rooker is the name on more tongues, and for good reason — 30 home runs is 30 home runs, and he enters a contract year with something to prove. But the player who could genuinely change what this franchise looks like over the next five years is Lawrence Butler.</p>
+
+<p>The tools were always there. The athleticism is elite. The questions were always about pitch recognition and plate discipline — could he hit advanced velocity, could he lay off the breaking ball down and away, could he get on base at a rate that made the power matter. Spring camp gave real reason to believe those questions are getting answered. His walk rate trended up. His chase rate trended down. If that holds in the regular season, Butler isn't just a nice piece — he's a cornerstone.</p>
+
+<p>Watch him in his first 20 games. That's when we'll know whether 2026 is the year he takes the step or the year we keep waiting for it.</p>
+
+<h2>The Rotation Storyline: Luis Medina's Make-or-Break Season</h2>
+<p>JP Sears anchors the rotation and he's a known quantity — reliable, smart, not going to embarrass himself. The wild card that could make this team legitimately interesting is Luis Medina.</p>
+
+<p>The raw stuff is real. A mid-to-upper-90s fastball with arm-side run. A slider that disappears when he locates it. When Medina is locked in, he looks like what you'd build in a lab if you wanted an American League West ace. When he's not, the walks pile up and the damage happens fast. He's shown both versions in every recent season.</p>
+
+<p>This year feels different only because the good version appeared more consistently in spring. "More consistently" is still not consistent enough for a top-of-rotation guy, but it's progress. If Medina posts a 3.40 ERA by the All-Star break, this team is in wild card conversations. If he reverts to 4.80 and unpredictable control, the rotation falls back to average and the season becomes about development rather than results.</p>
+
+<h2>Mason Miller's Health</h2>
+<p>The closer is, when healthy, one of the most dominant relievers in the American League. Triple digits, a slider that breaks off the table. The spring reports were the best we've seen — he looked fully right, working multiple consecutive days without issue. If that holds, the back end of this bullpen is a genuine weapon. If the arm issues resurface, the ninth inning becomes a real problem every close game.</p>
+
+<p>There's no way to know this in advance. It's the one variable that could shift this team's ceiling by five or six wins in either direction. Watch his usage patterns in April. If manager Mark Kotsay is using Miller on consecutive nights regularly, that's a sign the training staff is comfortable. If he's being managed carefully, that's its own signal.</p>
+
+<h2>What Success Actually Looks Like in Year 1</h2>
+<p>This is not a World Series roster. Anyone telling you otherwise is selling something. But "success" doesn't have to mean October baseball in 2026.</p>
+
+<p>Success looks like finishing above .500 for the first time in several years. It looks like Butler emerging as a legitimate everyday player. It looks like Medina delivering on even half the promise scouts have been projecting. It looks like Zack Gelof at second base continuing to build toward the player the organization believes he can be. It looks like this team being competitive in the division — not winning it, but making teams beat them rather than giving games away.</p>
+
+<p>Most importantly, success looks like Las Vegas fans who bought tickets to Opening Day coming back for the games in May and June, because they watched something that was worth watching. The stadium opens in 2028. The fanbase is being built right now.</p>
+
+<h2>The Matchup Worth Circling: AL West Series Against Seattle</h2>
+<p>The Mariners and the Athletics are the most direct comparison in the division right now — similar organizational philosophy, similar budget constraints, both trying to develop their way to competitiveness in a division with at least one team that outspends them significantly. The head-to-head results between Seattle and Las Vegas this year will tell us more about which organization is executing better than any individual player statistic will.</p>
+
+<p>Circle those series. They're the ones where you'll see who this team actually is.</p>
+${affiliateBlock}
+`,
+  },
+  {
+    slug: "allegiant-stadium-baseball-honest-review",
+    title: "Playing Baseball at Allegiant Stadium: The Honest Fan Experience Review",
+    description: "The A's played exhibition baseball at Allegiant Stadium before the new ballpark opens. Here's what it's actually like watching baseball at a football stadium — sight lines, atmosphere, what works, and what doesn't.",
+    date: "March 23, 2026",
+    category: "Fan Scene",
+    emoji: "🏟️",
+    body: `
+<h2>A Football Stadium Is Still a Football Stadium</h2>
+<p>Let's get the obvious thing out of the way first: Allegiant Stadium was not designed for baseball. The field is reconfigured, the foul territory stretches in ways that don't exist in a purpose-built ballpark, and the geometry of the seating bowl was engineered around an end zone, not home plate. None of that is a surprise. What is worth discussing honestly is what the experience actually feels like from the seats — because it's not as bad as you'd expect, and it's also not as good as the marketing would suggest.</p>
+
+<p>This is a real review from someone who sat through multiple games and paid attention to the right things.</p>
+
+<h2>The Sight Lines: Better Than Expected, With Caveats</h2>
+<p>The lower bowl seats along the baselines are genuinely good for baseball. The sightline angles aren't perfectly oriented toward home plate, but you're close to the field and the action is readable. A seat in the lower club level between first base and right field is a legitimately enjoyable place to watch a game.</p>
+
+<p>The issues start as you move toward the end zones. The corners of the lower bowl — sections that would be behind the baselines in a stadium built for this sport — sit at awkward angles to the infield. You're watching the game from a weird vantage point that requires consciously reorienting yourself each at-bat. It's not unworkable. It's not comfortable.</p>
+
+<p>The upper deck is where the football-stadium-as-baseball-venue reality really asserts itself. You're far. You're high. The field looks small in a way that purpose-built baseball parks, even the ones with larger capacities, don't. If you're in the upper deck end zones, you're watching the game on a screen more than you're watching the players. The screens are good, at least.</p>
+
+<h2>Capacity and Atmosphere: The Reduced Setup Actually Helps</h2>
+<p>For baseball, the Athletics configure Allegiant to use only a portion of the full 65,000-seat capacity. Tarped sections in the upper deck reduce the available seating to somewhere in the 30,000 to 35,000 range. This is the right call, and it makes the atmosphere meaningfully better than it would be at full football capacity.</p>
+
+<p>A half-full 35,000-seat configuration feels different from a half-full 65,000-seat configuration. The crowd is more concentrated, the noise has less dead space to dissipate into, and the stadium doesn't feel haunted the way large venues do when they're underpopulated. The games I attended had real atmosphere in the lower bowl even when the upper sections were sparse.</p>
+
+<p>The roof is the other major factor here. Allegiant's retractable roof means a baseball game in Las Vegas doesn't involve 108-degree heat. The climate control is real and it works. The experience of watching baseball in an air-conditioned building is genuinely different from watching it under the desert sun, and for this particular sport in this particular city, that difference matters more than the baseball purists who insist on open-air parks want to admit. You can actually focus on the game when you're not actively trying to survive it.</p>
+
+<h2>What Works</h2>
+<p>The concessions are better than a typical baseball experience. Allegiant has permanent food and beverage infrastructure built to handle NFL crowds, and that infrastructure works for baseball too. The variety of food options, the speed of service, the quality level — it's all above what you get at the average ballpark. Las Vegas knows how to feed people and that knowledge translates.</p>
+
+<p>The club areas are excellent. If you're in a premium seat or a club section, you're in climate-controlled comfort with good sightlines and better food. For a baseball game in Nevada in the summer, that combination is hard to beat.</p>
+
+<p>The parking and transit situation, while imperfect, is more manageable for baseball than for football. Baseball crowds are smaller and the schedule is more spread throughout the week. Arriving 30 minutes before first pitch doesn't require the same logistics that a Sunday afternoon NFL game demands.</p>
+
+<h2>What Doesn't Work</h2>
+<p>The foul territory. There's a lot of it. Baseball configurations in football stadiums typically involve more foul ground than purpose-built ballparks, and Allegiant is no exception. Seats that would be close to the action in a normal park are separated from it by a wide expanse of dirt and warning track. At the field level, this is noticeable. At the lower club level, you start to feel like you're watching from a distance even when you're technically close to the field.</p>
+
+<p>The baseline seats at the far ends of the lower bowl — sections that in football are behind the end zones — have difficult angles for baseball. The outfield is essentially sideways from those positions. If you're trying to watch a fly ball develop in real time, you're frequently craning your neck.</p>
+
+<p>The stadium's visual identity doesn't shift fully for baseball. The scoreboard is designed for football information displays and the baseball presentation, while functional, feels like an overlay rather than a purpose-built experience. Small thing, but it contributes to the overall sense that you're watching baseball in a place that's tolerating it rather than celebrating it.</p>
+
+<h2>The Honest Bottom Line</h2>
+<p>Allegiant Stadium is a good temporary home for baseball, with emphasis on both "good" and "temporary." It solves the weather problem entirely. It delivers a comfortable experience with strong food and beverage infrastructure. The reduced-capacity configuration makes the atmosphere work better than the venue's size would suggest.</p>
+
+<p>It's not a baseball stadium. The angles are wrong in too many places, the foul territory is excessive, and the upper deck might as well be a different sport. But for what it is — a premium NFL facility hosting baseball while the actual baseball park gets built — it does the job. Go to a game. Sit in the lower club or lower bowl between the bases. Enjoy the air conditioning. Watch some baseball.</p>
+
+<p>The new ballpark on the Strip opens in 2028. Then we'll have the real conversation about what Las Vegas baseball looks and feels like. Until then, Allegiant is good enough, and in a city where "good enough" is usually just the starting point, that counts for something.</p>
+${affiliateBlock}
+`,
+  },
+  {
     slug: "john-fisher-as-full-controversy-explained",
     title: "John Fisher and the A's: The Full Controversy Explained",
     description: "A definitive deep dive into the cheapskate ownership, the Oakland betrayal, and the path that led the Athletics to Las Vegas.",
@@ -896,3 +992,4 @@ export function getAllPosts(): Post[] {
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
 }
+
